@@ -6,7 +6,7 @@ class controller_get{
 	}
 
 	function logout(){
-		echo 'ok';
+		
 	}
 }
 ?>
