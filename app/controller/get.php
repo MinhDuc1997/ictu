@@ -1,12 +1,12 @@
 <?php
-class controller_get{
+class app_controller_get{
 
 	function login(){
 
 	}
 
 	function logout(){
-		
+
 	}
 }
 ?>
