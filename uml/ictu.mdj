@@ -19,6 +19,7 @@
 					},
 					"name": "Main",
 					"visible": true,
+<<<<<<< HEAD
 					"defaultDiagram": true,
 					"ownedViews": [
 						{
@@ -5746,6 +5747,9 @@
 					"isFinalSpecialization": false,
 					"isLeaf": false,
 					"isActive": false
+=======
+					"defaultDiagram": true
+>>>>>>> bc4e4f15b7cc57f7e218a7b2e9cb71cb39328f02
 				}
 			],
 			"visibility": "public"
@@ -10473,7 +10477,10 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+<<<<<<< HEAD
 							"type": "",
+=======
+>>>>>>> bc4e4f15b7cc57f7e218a7b2e9cb71cb39328f02
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -10553,7 +10560,10 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+<<<<<<< HEAD
 							"type": "",
+=======
+>>>>>>> bc4e4f15b7cc57f7e218a7b2e9cb71cb39328f02
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
