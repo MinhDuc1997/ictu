@@ -11,10 +11,10 @@ require_once 'router.php';
 
 switch($_POST['action']) {
 	case 'login':
-		view('admin', '');
+		$controller->login();
 		break;
 	case 'logout':
-		view('login', '');
+		$controller->logout();
 		break;
 	default:
 		# code...

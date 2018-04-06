@@ -40,6 +40,11 @@
     color: #fff;
     background-color: #009688;
   }
+  .right{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100%;
+  }
   </style>
 </head>
 <body>
@@ -58,22 +63,159 @@
           <li class="nav-item">
             <a class="nav-link active" data-toggle="pill" href="#home">Khoa</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#menu1">Khóa</a>
-          </li>
         </ul>
       </nav>
 
       <nav>
         <form class="form" method="post" action="router/action.php">
           <input type="hidden" name="action" value="logout">
-          <button type="submit" name="btn-logout" class="btn btn-sm ">Đăng xuât</button>
+          <button type="submit" name="btn-logout" class="btn btn-sm ">Đăng xuất</button>
         </form>
       </nav>
     </div>
 
-    <div class="col-9 right">
-      <h3></h3>
+    <div class="col-10 right">
+      <h4>QLSV</h4>
+      <table class="table">
+        <thread>
+          <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Lớp</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>SĐT</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr class="bg-danger">
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr class="bg-danger">
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+            <th>Example</th>
+          </tr>
+        </thread>
+      </table>
     </div>
 
   </div>

@@ -10,4 +10,12 @@ function view($view, $get){
 		header('location: http://localhost/ictu/'.$view.'.php?'.$get);
 
 }
+
+function connect(){
+	$con = new app_model_connect();
+	return $con->con;	
+}
+
+$controller = new app_controller_get();
+
 ?> 
