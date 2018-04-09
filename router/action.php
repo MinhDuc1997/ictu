@@ -11,10 +11,15 @@ require_once 'router.php';
 
 switch($_POST['action']) {
 	case 'login':
-		$controller->login();
+		$controllerGet->login();
 		break;
 	case 'logout':
-		$controller->logout();
+		$controllerGet->logout();
+		break;
+	case 'getStudent':
+		break;
+	case 'test':
+		$controllerGet->test($_POST['p0']);
 		break;
 	default:
 		# code...

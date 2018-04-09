@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th4 02, 2018 lúc 06:28 AM
--- Phiên bản máy phục vụ: 10.1.28-MariaDB
--- Phiên bản PHP: 5.6.32
+-- Host: localhost
+-- Generation Time: Apr 09, 2018 at 03:54 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `ictu`
+-- Database: `ictu`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -41,17 +41,17 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`adminid`, `admin_name`, `admin_birthday`, `admin_gender`, `provinceid`, `email`, `phone`, `password`, `level`) VALUES
 ('bomi', 'Jun Bomi', '1993-01-20', 'Nu', 22, 'Bomi1993@gmail.com', 168111111, '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 1),
-('nguyenviet', 'Nguyen Van Viet', '1990-05-01', 'Nam', 58, 'vanviet@gmail.com', 1682222222, '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 2);
+('nguyenviet', 'Nguyen Van Viet', '1990-05-01', 'Nam', 58, 'vanviet@gmail.com', 1682222222, '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `class`
+-- Table structure for table `class`
 --
 
 CREATE TABLE `class` (
@@ -62,7 +62,7 @@ CREATE TABLE `class` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `class`
+-- Dumping data for table `class`
 --
 
 INSERT INTO `class` (`classid`, `classname`, `majorsid`, `courseid`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `class` (`classid`, `classname`, `majorsid`, `courseid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course`
+-- Table structure for table `course`
 --
 
 CREATE TABLE `course` (
@@ -84,7 +84,7 @@ CREATE TABLE `course` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `course`
+-- Dumping data for table `course`
 --
 
 INSERT INTO `course` (`courseid`, `coursename`, `begins`) VALUES
@@ -107,7 +107,7 @@ INSERT INTO `course` (`courseid`, `coursename`, `begins`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `faculty`
+-- Table structure for table `faculty`
 --
 
 CREATE TABLE `faculty` (
@@ -116,7 +116,7 @@ CREATE TABLE `faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `faculty`
+-- Dumping data for table `faculty`
 --
 
 INSERT INTO `faculty` (`facultyid`, `facultyname`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `faculty` (`facultyid`, `facultyname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `majors`
+-- Table structure for table `majors`
 --
 
 CREATE TABLE `majors` (
@@ -136,7 +136,7 @@ CREATE TABLE `majors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `majors`
+-- Dumping data for table `majors`
 --
 
 INSERT INTO `majors` (`majorsid`, `majorsname`, `facultyid`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `majors` (`majorsid`, `majorsname`, `facultyid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `parent`
+-- Table structure for table `parent`
 --
 
 CREATE TABLE `parent` (
@@ -157,7 +157,7 @@ CREATE TABLE `parent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `parent`
+-- Dumping data for table `parent`
 --
 
 INSERT INTO `parent` (`studentid`, `parentname`, `phone`) VALUES
@@ -167,7 +167,7 @@ INSERT INTO `parent` (`studentid`, `parentname`, `phone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `profile`
+-- Table structure for table `profile`
 --
 
 CREATE TABLE `profile` (
@@ -182,7 +182,7 @@ CREATE TABLE `profile` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `province`
+-- Table structure for table `province`
 --
 
 CREATE TABLE `province` (
@@ -191,7 +191,7 @@ CREATE TABLE `province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `province`
+-- Dumping data for table `province`
 --
 
 INSERT INTO `province` (`provinceid`, `provincename`) VALUES
@@ -262,7 +262,7 @@ INSERT INTO `province` (`provinceid`, `provincename`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `residence`
+-- Table structure for table `residence`
 --
 
 CREATE TABLE `residence` (
@@ -273,7 +273,7 @@ CREATE TABLE `residence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `residence`
+-- Dumping data for table `residence`
 --
 
 INSERT INTO `residence` (`studentid`, `provinceid`, `isdorm`, `ismotel`) VALUES
@@ -283,7 +283,7 @@ INSERT INTO `residence` (`studentid`, `provinceid`, `isdorm`, `ismotel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `student`
+-- Table structure for table `student`
 --
 
 CREATE TABLE `student` (
@@ -295,31 +295,45 @@ CREATE TABLE `student` (
   `provinceid` int(11) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` int(15) DEFAULT NULL,
-  `level` int(1) DEFAULT NULL,
-  `classid` int(11) DEFAULT NULL
+  `classid` int(11) DEFAULT NULL,
+  `studying` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `student`
+-- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`studentid`, `firstname`, `lastname`, `birthday`, `gender`, `provinceid`, `email`, `phone`, `level`, `classid`) VALUES
-('DTC155D4802010103', 'Trần Công ', 'Tùng', '1997-02-12', 'Nam', 50, 'tungtran130@gmail.com', 1684386405, 1, 1),
-('DTC155D4802010204', 'Nguyễn Minh', 'Đức', '1997-02-25', 'Nam', 58, 'duc2521997@gmail.com', 1676460699, 1, 4);
+INSERT INTO `student` (`studentid`, `firstname`, `lastname`, `birthday`, `gender`, `provinceid`, `email`, `phone`, `classid`, `studying`) VALUES
+('DTC155D3201040008', 'Hà Quang', 'Huy', '1997-06-15', 'Nam', 23, 'DTC155D3201040008@ictu.edu.vn', 948345435, 4, 'yes'),
+('DTC155D4802010001', 'Nguyễn Ngọc ', 'Ánh', '1997-05-06', 'Nữ', 22, 'DTC155D4802010001@ictu.edu.vn', 912353845, 1, 'yes'),
+('DTC155D4802010002', 'Nguyễn Văn ', 'Trung', '1997-03-24', 'Nam', 40, 'DTC155D4802010002@ictu.edu.vn', 912358345, 1, 'yes'),
+('DTC155D4802010003', 'Đặng Việt ', 'Anh', '1997-03-12', 'Nam', 4, 'DTC155D4802010003@ictu.edu.vn', 987439423, 1, 'yes'),
+('DTC155D4802010004', 'Nguyễn Tuấn ', 'Anh', '1997-07-29', 'Nam', 62, 'DTC155D4802010004@ictu.edu.vn', 1684357403, 2, 'no'),
+('DTC155D4802010055', 'Phạm Thị', 'Loan', '1997-05-19', 'Nữ', 28, 'DTC155D4802010055@ictu.edu.vn', 984759483, 2, 'yes'),
+('DTC155D4802010056', 'Vũ Thị Như ', 'Loan', '1997-02-14', 'Nữ', 53, 'DTC155D4802010056@ictu.edu.vn', 948384954, 5, 'yes'),
+('DTC155D4802010077', 'Đồng Minh', 'Tâm', '1997-05-17', 'Nam', 60, 'DTC155D4802010077@ictu.edu.vn', 985483432, 1, 'yes'),
+('DTC155D4802010103', 'Trần Công ', 'Tùng', '1997-02-12', 'Nam', 50, 'tungtran130@gmail.com', 1684386405, 1, 'yes'),
+('DTC155D4802010204', 'Nguyễn Minh', 'Đức', '1997-02-25', 'Nam', 58, 'duc2521997@gmail.com', 1676460699, 4, 'yes'),
+('DTC155D4802010575', 'Lê Thị ', 'Loan', '1997-03-11', 'Nữ', 20, 'DTC155D4802010575@ictu.edu.vn', 985738531, 4, 'yes'),
+('DTC15HD4801030003', 'Hoàng Tuấn', 'Anh', '1997-03-03', 'Nam', 6, 'DTC15HD4801030003@ictu.edu.vn', 978463243, 4, 'yes'),
+('DTC15HD4802010021', 'Đinh Quốc ', 'Chiến', '1997-02-14', 'Nam', 23, 'DTC15HD4802010021@ictu.edu.vn', 978345243, 2, 'yes'),
+('DTC15HD4802010132', 'Dương Hữu', 'Long', '1995-08-07', 'Nam', 59, 'DTC15HD4802010132@ictu.edu.vn', 985459653, 4, 'no'),
+('DTC15HD4802010286', 'Nguyễn Văn ', 'Hưng', '1997-08-21', 'Nam', 11, 'DTC15HD4802010286@ictu.edu.vn', 985439525, 4, 'yes'),
+('DTC15HD4802010408', 'Nguyễn Tiến ', 'Bình', '1997-03-10', 'Nam', 31, 'DTC15HD4802010408@ictu.edu.vn', 987343234, 2, 'yes');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminid`),
   ADD KEY `fk_provicead` (`provinceid`);
 
 --
--- Chỉ mục cho bảng `class`
+-- Indexes for table `class`
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`classid`),
@@ -327,51 +341,51 @@ ALTER TABLE `class`
   ADD KEY `fk_majors` (`majorsid`);
 
 --
--- Chỉ mục cho bảng `course`
+-- Indexes for table `course`
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`courseid`);
 
 --
--- Chỉ mục cho bảng `faculty`
+-- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`facultyid`);
 
 --
--- Chỉ mục cho bảng `majors`
+-- Indexes for table `majors`
 --
 ALTER TABLE `majors`
   ADD PRIMARY KEY (`majorsid`),
   ADD KEY `fk_faculty` (`facultyid`);
 
 --
--- Chỉ mục cho bảng `parent`
+-- Indexes for table `parent`
 --
 ALTER TABLE `parent`
   ADD KEY `fk_student` (`studentid`);
 
 --
--- Chỉ mục cho bảng `profile`
+-- Indexes for table `profile`
 --
 ALTER TABLE `profile`
   ADD KEY `fk_studentfile` (`studentid`);
 
 --
--- Chỉ mục cho bảng `province`
+-- Indexes for table `province`
 --
 ALTER TABLE `province`
   ADD PRIMARY KEY (`provinceid`);
 
 --
--- Chỉ mục cho bảng `residence`
+-- Indexes for table `residence`
 --
 ALTER TABLE `residence`
   ADD KEY `fk_student1` (`studentid`),
   ADD KEY `fk_province1` (`provinceid`);
 
 --
--- Chỉ mục cho bảng `student`
+-- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`studentid`),
@@ -379,77 +393,77 @@ ALTER TABLE `student`
   ADD KEY `fk_class` (`classid`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `class`
+-- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
   MODIFY `classid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `course`
+-- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
   MODIFY `courseid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `majors`
+-- AUTO_INCREMENT for table `majors`
 --
 ALTER TABLE `majors`
   MODIFY `majorsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `province`
+-- AUTO_INCREMENT for table `province`
 --
 ALTER TABLE `province`
   MODIFY `provinceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `admin`
+-- Constraints for table `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `fk_provicead` FOREIGN KEY (`provinceid`) REFERENCES `province` (`provinceid`);
 
 --
--- Các ràng buộc cho bảng `class`
+-- Constraints for table `class`
 --
 ALTER TABLE `class`
   ADD CONSTRAINT `fk_course` FOREIGN KEY (`courseid`) REFERENCES `course` (`courseid`),
   ADD CONSTRAINT `fk_majors` FOREIGN KEY (`majorsid`) REFERENCES `majors` (`majorsid`);
 
 --
--- Các ràng buộc cho bảng `majors`
+-- Constraints for table `majors`
 --
 ALTER TABLE `majors`
   ADD CONSTRAINT `fk_faculty` FOREIGN KEY (`facultyid`) REFERENCES `faculty` (`facultyid`);
 
 --
--- Các ràng buộc cho bảng `parent`
+-- Constraints for table `parent`
 --
 ALTER TABLE `parent`
   ADD CONSTRAINT `fk_student` FOREIGN KEY (`studentid`) REFERENCES `student` (`studentid`);
 
 --
--- Các ràng buộc cho bảng `profile`
+-- Constraints for table `profile`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `fk_studentfile` FOREIGN KEY (`studentid`) REFERENCES `student` (`studentid`);
 
 --
--- Các ràng buộc cho bảng `residence`
+-- Constraints for table `residence`
 --
 ALTER TABLE `residence`
   ADD CONSTRAINT `fk_province1` FOREIGN KEY (`provinceid`) REFERENCES `province` (`provinceid`),
   ADD CONSTRAINT `fk_student1` FOREIGN KEY (`studentid`) REFERENCES `student` (`studentid`);
 
 --
--- Các ràng buộc cho bảng `student`
+-- Constraints for table `student`
 --
 ALTER TABLE `student`
   ADD CONSTRAINT `fk_class` FOREIGN KEY (`classid`) REFERENCES `class` (`classid`),

@@ -47,8 +47,7 @@
   a{color: #fff}
   a:hover{color: yellowgreen}
   input[name=search]{
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   button[name=btn-search]{
     background-color: #fff;
@@ -60,21 +59,6 @@
     margin-top: 0px;
     color: #009688;
     background-color: #fff;
-  }
-  button[name=btn-student]{
-    background: #fff;
-    color: #009688;
-    border: none;
-  }
-  button[name=btn-student]:hover{
-    background: #fff;
-    color: #009688;
-    border: none;
-  }
-  button[name=btn-student]:focus{
-    background: #fff !important;
-    color: #009688 !important;
-    border: none !important;
   }
   .right{
     overflow-x: hidden;
@@ -96,7 +80,6 @@
     line-height: 0.2;
   }
   .title{
-    color: #009688;
     display: block;
     margin-top: 35px;
     margin-bottom: 50px;
@@ -108,9 +91,6 @@
   }
   tbody{
     font-size: 14px;
-  }
-  select{
-    margin-top: 10px;
   }
   </style>
 </head>
@@ -134,18 +114,29 @@
         </form>
       </nav>
       <nav>
-          <form method="post">
-            <div class="form-group menu-form">
-              <select class="custom-select faculty" id="inlineFormCustomSelect">
-                <option selected="">Khoa ...</option>
-                <option>Cong nghe thong tin</option>
-                <option>An toan thong tin</option>
-                <option>Tu dong hoa</option>
-                <option>He thong tin tin</option>
-              </select>
-            </div>
-            <button type="button" name="btn-student" class="btn btn-primary btn-sm ">Xem</button>
-          </form>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item li-1"  >
+              <a class="nav-link active a-1" data-toggle="pill" href="#home" data-value="a-1">Khoa</a>
+              <ul class="nav nav-pills flex-column ul-2">
+                <li class="nav-item " >
+                  <a class="nav-link active a-2" data-toggle="pill" href="#home" data-value="a-2">Cong nghe thong tin</a>
+                  <ul class="nav nav-pills flex-column ul-3">
+                    <li class="nav-item " data-type="">
+                      <a class="nav-link active a-3" data-toggle="pill" href="#home" data-value="a-3">Ky thuat phan mem</a>
+                      <ul class="nav nav-pills flex-column ul-4">
+                        <li class="nav-item " data-type="">
+                          <a class="nav-link active a-4" data-toggle="pill" href="#home" data-value="a-4">K14</a>
+                          <ul class="nav nav-pills flex-column ul-5">
+                            <li class="nav-item " data-type="">
+                              <a class="nav-link active a-5" data-toggle="pill" href="#home" data-value="a-5">KTMP K14A</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+          </ul>
       </nav>
     </div>
 
@@ -155,17 +146,15 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Masv</th>
               <th scope="col">Tên</th>
               <th scope="col">Lớp</th>
-              <th scope="col">G.tính</th>
+              <th scope="col">Giới tính</th>
               <th scope="col">Cư chú</th>
               <th scope="col">SĐT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>DTC155D4802010020</td>
               <td>Nguyen Minh Duc</td>
               <td>CNTT K14C</td>
               <td>Nam</td>
@@ -173,7 +162,6 @@
               <td>01676460699</td>
             </tr>
             <tr class="bg-danger">
-              <td>DTC155D4802022222</td>
               <td>Nguyen Thi Lan Phuong</td>
               <td>Example</td>
               <td>Nu</td>
@@ -186,6 +174,12 @@
               <td>Example</td>
               <td>Example</td>
               <td>Example</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>Example</td>
+              <td>Example</td>
+              <td>Example</td>
               <td>Example</td>
             </tr>
             <tr>
@@ -194,18 +188,8 @@
               <td>Example</td>
               <td>Example</td>
               <td>Example</td>
-              <td>Example</td>
             </tr>
             <tr>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-            <tr>
-              <td>Example</td>
               <td>Example</td>
               <td>Example</td>
               <td>Example</td>

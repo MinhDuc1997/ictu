@@ -16,6 +16,6 @@ function connect(){
 	return $con->con;	
 }
 
-$controller = new app_controller_get();
+$controllerGet = new app_controller_get();
 
 ?> 
