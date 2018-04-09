@@ -18,6 +18,9 @@ switch($_POST['action']) {
 		break;
 	case 'getStudent':
 		break;
+	case 'getFaculty':
+		$controllerGet->getFaculty();
+		break;
 	case 'test':
 		$controllerGet->test($_POST['p0']);
 		break;

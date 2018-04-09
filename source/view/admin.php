@@ -136,13 +136,6 @@
       <nav>
           <form method="post">
             <div class="form-group menu-form">
-              <select class="custom-select faculty" id="inlineFormCustomSelect">
-                <option selected="">Khoa ...</option>
-                <option>Cong nghe thong tin</option>
-                <option>An toan thong tin</option>
-                <option>Tu dong hoa</option>
-                <option>He thong tin tin</option>
-              </select>
             </div>
             <button type="button" name="btn-student" class="btn btn-primary btn-sm ">Xem</button>
           </form>

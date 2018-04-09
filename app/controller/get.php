@@ -9,6 +9,12 @@ class app_controller_get{
 		$logout = new app_model_logout();
 	}
 
+	function getFaculty(){
+		$faculty = new app_model_getData();
+		//print_r($faculty->getFaculty());
+		echo json_encode($faculty->getFaculty());
+	}
+
 	function test($p0){
 		//echo $p0;
 		$obj_test = new app_model_test();
