@@ -16,13 +16,20 @@ switch($_POST['action']) {
 	case 'logout':
 		$controllerGet->logout();
 		break;
-	case 'getStudent':
-		break;
 	case 'getFaculty':
 		$controllerGet->getFaculty();
 		break;
-	case 'test':
-		$controllerGet->test($_POST['p0']);
+	case 'getMajors':
+		$controllerGet->getMajors($_POST['facultyid']);
+		break;
+	case 'getCourse':
+		$controllerGet->getCourse();
+		break;
+	case 'getClass':
+		$controllerGet->getClass($_POST['majorsid'], $_POST['courseid']);
+		break;
+	case 'getStudent':
+		$controllerGet->getStudent($_POST['classid']);
 		break;
 	default:
 		# code...

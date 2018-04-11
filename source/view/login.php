@@ -13,6 +13,9 @@
   </style>
 </head>
 
+<?php if(isset($_COOKIE['username'])) header('location: admin')?>
+
+
 <body>
 
   <div class="login-container">

@@ -10,10 +10,13 @@ function checkLogin(){
 		  dataType: "html"
 		})
 		request.done(function(msg) {
+			console.log(msg)
 			if(msg == 0)
 				$("p").text("Sai tên tài khoản hoặc mật khẩu")
-			else
+			if(msg == 1)
 				window.location.href = "http://localhost/ictu/admin";
+			if(msg != 0 && msg != 1)
+				$("p").text("ERR DB")
 		})
 	
 }

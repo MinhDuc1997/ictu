@@ -112,16 +112,21 @@
   select{
     margin-top: 10px;
   }
+  .err{
+    color: red;
+  }
   </style>
 </head>
-<body onload="menu()">
 
+<?php if(!isset($_COOKIE['username'])) header('location: login')?>
+
+<body onload="menu()">
 <div class="container-fluid h-100">
   <div class="row h-100">
     <div class="col-3 left">
       <nav class="user-info">
         <h6 class="font-weight-bold">Quản trị viên</h6>
-        <p><small>Bomi</small></p>
+        <p><small><?php echo $_COOKIE['username'] ?></small></p>
         <form class="form" method="post" action="router/action.php">
           <input type="hidden" name="action" value="logout">
           <button type="submit" name="btn-logout" class="btn btn-sm "><small>Đăng xuất</small></button>
@@ -130,14 +135,16 @@
       <nav>
         <form class="form" method="post">
           <input type="text" name="search" class="form-control form-control-sm" placeholder="Tìm kiếm">
-          <button type="submit" name="btn-search" class="btn btn-sm " >Tìm</button>
+          <button type="submit" name="btn-search" class="btn btn-sm" >Tìm</button>
         </form>
       </nav>
       <nav>
           <form method="post">
             <div class="form-group menu-form">
             </div>
-            <button type="button" name="btn-student" class="btn btn-primary btn-sm ">Xem</button>
+            <button type="button" name="btn-student" class="btn btn-primary btn-sm btn-student">Xem</button>
+            <p></p>
+            <p class="err"></p>
           </form>
       </nav>
     </div>
@@ -150,62 +157,13 @@
             <tr>
               <th scope="col">Masv</th>
               <th scope="col">Tên</th>
-              <th scope="col">Lớp</th>
               <th scope="col">G.tính</th>
+              <th scope="col">N.sinh</th>
+              <th scope="col">Lớp</th>
               <th scope="col">Cư chú</th>
               <th scope="col">SĐT</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>DTC155D4802010020</td>
-              <td>Nguyen Minh Duc</td>
-              <td>CNTT K14C</td>
-              <td>Nam</td>
-              <td>Xa quyet thang, phuong Tan Thinh, TP Thai Nguyen</td>
-              <td>01676460699</td>
-            </tr>
-            <tr class="bg-danger">
-              <td>DTC155D4802022222</td>
-              <td>Nguyen Thi Lan Phuong</td>
-              <td>Example</td>
-              <td>Nu</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-            <tr>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-            <tr>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-            <tr>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-            <tr>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-              <td>Example</td>
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2018 at 03:54 AM
+-- Generation Time: Apr 11, 2018 at 09:25 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -89,20 +89,21 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`courseid`, `coursename`, `begins`) VALUES
 (1, 'K1', 2002),
-(2, 'K14', 2015),
-(3, 'K2', 2003),
-(4, 'K3', 2004),
-(5, 'K4', 2005),
-(6, 'K5', 2006),
-(7, 'K6', 2007),
-(8, 'K7', 2008),
-(9, 'K8', 2009),
-(10, 'K9', 2010),
-(11, 'K10', 2011),
-(12, 'K11', 2012),
+(2, 'K2', 2003),
+(3, 'K3', 2004),
+(4, 'K4', 2005),
+(5, 'K5', 2006),
+(6, 'K6', 2007),
+(7, 'K7', 2008),
+(8, 'K8', 2009),
+(9, 'K9', 2010),
+(10, 'K10', 2011),
+(11, 'K11', 2012),
+(12, 'K12', 2013),
 (13, 'K13', 2014),
-(14, 'K15', 2016),
-(15, 'K16', 2017);
+(14, 'K14', 2015),
+(15, 'K15', 2016),
+(16, 'K16', 2017);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ INSERT INTO `course` (`courseid`, `coursename`, `begins`) VALUES
 
 CREATE TABLE `faculty` (
   `facultyid` varchar(20) NOT NULL,
-  `facultyname` varchar(30) DEFAULT NULL
+  `facultyname` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -120,7 +121,12 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`facultyid`, `facultyname`) VALUES
+('ATTT', 'Bộ môn an toàn hệ thống thông tin'),
+('CNDT', 'Công nghệ điện tử và truyền thông'),
+('CNTDH', 'Công nghệ tự động hóa'),
 ('CNTT', 'Công nghệ thông tin'),
+('HTTTKT', 'Hệ thống thông tin kinh tế'),
+('KHCB', 'Khoa học cơ bản'),
 ('TTDPT', 'Truyền thông đa phương tiện');
 
 -- --------------------------------------------------------
@@ -278,7 +284,21 @@ CREATE TABLE `residence` (
 
 INSERT INTO `residence` (`studentid`, `provinceid`, `isdorm`, `ismotel`) VALUES
 ('DTC155D4802010204', 50, NULL, 'Xóm trọ cô Tân'),
-('DTC155D4802010103', 50, NULL, 'Tổ 13, phường Tân Thịnh, TPTN');
+('DTC155D4802010103', 50, NULL, 'Tổ 13, phường Tân Thịnh, TPTN'),
+('DTC15HD4801030003', 50, 'KTX A10 P10', NULL),
+('DTC15HD4802010021', 50, NULL, 'Tổ 13, Xã Quyết Thắng, TPTN'),
+('DTC15HD4802010132', 50, 'KTX A1 P1', NULL),
+('DTC15HD4802010286', 50, 'KTX A1 P1', NULL),
+('DTC15HD4802010408', 50, 'KTX A1 P2', NULL),
+('DTC155D3201040008', 50, NULL, 'Tổ 12 Xã Quyết Thắng TPTN'),
+('DTC155D4802010001', 50, 'KTX A1 P2', NULL),
+('DTC155D4802010002', 50, NULL, 'Tổ 13 Xã Quyết Thắng TPTN'),
+('DTC155D4802010003', 50, 'KTX A1 P3', NULL),
+('DTC155D4802010004', 50, 'KTX A1 P3', NULL),
+('DTC155D4802010055', 50, 'KTX A1 P3', NULL),
+('DTC155D4802010056', 50, NULL, 'Tổ 12 Xã Quyết Thắng TPTN'),
+('DTC155D4802010077', 50, 'KTX A2 P1', NULL),
+('DTC155D4802010575', 50, 'KTX A2 P2', NULL);
 
 -- --------------------------------------------------------
 
@@ -381,6 +401,7 @@ ALTER TABLE `province`
 -- Indexes for table `residence`
 --
 ALTER TABLE `residence`
+  ADD UNIQUE KEY `studentid` (`studentid`),
   ADD KEY `fk_student1` (`studentid`),
   ADD KEY `fk_province1` (`provinceid`);
 
@@ -406,7 +427,7 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `courseid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `courseid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `majors`

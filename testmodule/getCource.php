@@ -1,8 +1,8 @@
 <?php
-	function getFaculty(){
-	    $conn = mysqli_connect("localhost", "root", "123", "ictu");
+	function getCourse(){
+	    $conn = mysqli_connect("localhost", "root", "", "ictu");
 	    mysqli_set_charset($conn, 'utf8');
-	    $query = "SELECT * FROM faculty";
+	    $query = "SELECT * FROM course";
 	    $result = mysqli_query($conn, $query);
 
         if(mysqli_num_rows($result) < 1){
@@ -11,14 +11,15 @@
 	        $arr = [];
 	        while($rows = mysqli_fetch_assoc($result)){   
 	        	$arr_temp = [];     
-	            $arr_temp[] = $rows['facultyid'];
-	            $arr_temp[] = $rows['facultyname'];
-	            $arr[] = $arr_temp;
+	            $arr_temp[] = $rows['courseid'];
+	            $arr_temp[] = $rows['coursename'];
+                $arr_temp[] = $rows['begins'];
+                $arr[] = $arr_temp;
 	        }
             return $arr;
         }
 	}
 	echo '<pre>';
-	print_r(getFaculty());
+	print_r(getCourse());
 	echo '</pre>'
 ?>

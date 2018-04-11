@@ -11,15 +11,27 @@ class app_controller_get{
 
 	function getFaculty(){
 		$faculty = new app_model_getData();
-		//print_r($faculty->getFaculty());
 		echo json_encode($faculty->getFaculty());
 	}
 
-	function test($p0){
-		//echo $p0;
-		$obj_test = new app_model_test();
-		$obj_arr = $obj_test->test();
-		echo json_encode($obj_arr);
+	function getMajors($facultyid){
+		$majors = new app_model_getData();
+		echo json_encode($majors->getMajors($facultyid));
+	}
+
+	function getCourse(){
+		$course = new app_model_getData();
+		echo json_encode($course->getCourse());
+	}
+
+	function getClass($majorsid, $courseid){
+		$class = new app_model_getData();
+		echo json_encode($class->getClass($majorsid, $courseid));
+	}
+
+	function getStudent($classid){
+		$sudent = new app_model_getData();
+		echo json_encode($sudent->getStudent($classid));
 	}
 }
 ?>
