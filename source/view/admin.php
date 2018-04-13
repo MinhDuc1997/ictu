@@ -115,12 +115,157 @@
   .err{
     color: red;
   }
-  </style>
+  .update {
+    display: none;
+    position: fixed;
+    width: 60%;
+    height: 94%;
+    border: 1px solid #fff;
+    background-color: #009688;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    border-radius: 15px;
+    top: 3%;
+    padding: 25px;
+    overflow-y: scroll;
+}
+#formGroupExampleInput {
+    width: 52%;
+    margin-left: 15%;
+}
+#example-date-input {
+    width: 52%;
+    margin-left: 15%;
+}
+.form-inline.mb-2.mr-sm-2.mb-sm-0.gr-1 {
+
+    margin-bottom: 15px !important;
+}
+.l-1  #inlineFormCustomSelect {
+    margin-left: 15%;
+    width: 52%;
+    display: block;
+
+}
+.l-2 #inlineFormCustomSelect {
+    margin-left: 15%;
+    width: 78%;
+    display: block;
+}
+#formGroupExampleInput2 {
+    width: 52%;
+    margin-left: 15%;
+}
+label{
+      color: #fff;
+      margin-left: 15%;
+}
+.sl {
+    width: 18%;
+}
+button[name=btn-update-student]{
+  background-color: #fff;
+  color: #009688;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+button[name=btn-update-student]:hover{
+    background: #fff;
+    color: #009688;
+    border: none;
+  }
+  button[name=btn-update-student]:focus{
+    background: #fff !important;
+    color: #009688 !important;
+    border: none !important;
+  }
+.over {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(41, 41, 36, 0.9);
+}
+</style>
+
 </head>
 
 <?php if(!isset($_COOKIE['username'])) header('location: login')?>
 
 <body onload="menu()">
+<div class="over">
+  <div class="update">
+    <form>
+      <div class="row h-88 ">
+        <div class="col-7 l-1">
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput">Họ đệm</label>
+            <input type="text" class="firstname form-control" id="formGroupExampleInput">
+          </div>
+           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput2">Tên</label>
+            <input type="text" class="lastname form-control" id="formGroupExampleInput2">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput">Mã sv</label>
+            <input type="text" class="studentid form-control" id="formGroupExampleInput">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Giới tinh</label>
+            <select class="gender custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Quê quán</label>
+            <select class="country custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="example-date-input" class="mr-sm-2">Ngày sinh</label>
+            <input class="date form-control" type="date" id="example-date-input">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput">Cư chú</label>
+            <input type="text" class="residence_ form-control" id="formGroupExampleInput">
+          </div>
+        </div>
+        <div class="col-5 l-2">
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Khoa</label>
+            <select class="facluty_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Ngành</label>
+            <select class="majors_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Khóa</label>
+            <select class="course_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Lớp</label>
+            <select class="class_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
+          </div>
+        </div>
+      </div>  
+      
+      <button type="button" name="btn-update-student" class="btn btn-primary btn-sm btn-update-student">Cập nhật</button>
+    </form>
+  </div>
+</div>
+
 <div class="container-fluid h-100">
   <div class="row h-100">
     <div class="col-3 left">
@@ -170,6 +315,5 @@
 
   </div>
 </div>
-
 </body>
 </html>

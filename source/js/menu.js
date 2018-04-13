@@ -242,7 +242,17 @@ function getAllInfoStudent(student_id){
 			  dataType: "json"
 			})
 	request.done(function(msg){
-		console.log(msg)
+		console.log(msg.address)
+		$(".firstname").val(msg.firstname)
+		$(".lastname").val(msg.lastname)
+		$(".studentid").val(msg.id)
+		$(".gender").append('<option selected>'+msg.gender+'</option>')
+		$(".country").append('<option selected>'+msg.country+'</option>')
+		$(".residence_").val(msg.address)
+		$(".facluty_").append('<option selected>'+msg.faculty+'</option>')
+		$(".majors_").append('<option selected>'+msg.majors+'</option>')
+		$(".course_").append('<option selected>'+msg.course+'</option>')
+		$(".class_").append('<option selected>'+msg.class+'</option>')
 	})
 }
 
@@ -261,5 +271,15 @@ function closeDiv(){
 	    	return;
 		$(".over").hide()
 		$(".update").hide()
+		$(".firstname").val("")
+		$(".lastname").val("")
+		$(".studentid").val("")
+		$(".gender").find("option").remove()
+		$(".country").find("option").remove()
+		$(".residence_").val("")
+		$(".facluty_").find("option").remove()
+		$(".majors_").find("option").remove()
+		$(".course_").find("option").remove()
+		$(".class_").find("option").remove()
 	});
 }
