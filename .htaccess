@@ -4,6 +4,8 @@ RewriteRule admin$ source/view/admin.php
 
 RewriteRule login$ source/view/login.php
 
+RewriteRule update$ source/view/update.php
+
 #RewriteRule admin-([A-Za-z0-9-]+)$ source/view/admin.php?name=$1
 
 #DirectoryIndex index.php source/view/login.php

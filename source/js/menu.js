@@ -5,6 +5,8 @@ function menu(){
 	caurseEvent();
 	classEvent();
 	student();
+	studentEvent();
+	closeDiv();
 }
 
 function faculty(){
@@ -36,7 +38,7 @@ function facultyEvent(){
 	    	faculty_value += $(this).text()	
 	      	faculty_id += $(this).attr("data-value")
 	      	if(faculty_value !== "Khoa ..."){
-	      		console.log(faculty_id)
+	      		//console.log(faculty_id)
 	      		$(".majors").remove()
    				$(".caurse").remove()
     			$(".class").remove()
@@ -198,16 +200,27 @@ function student(){
 				$("tbody").remove()
 				$(".table").append("<tbody>")
 				for(i = 0; i < msg.length; i++){
-					console.log(i)
-					$("tbody").append('<tr data-value="'+msg[i].id+'" class="row-student-'+i+'"">')
-					$('.row-student-'+i).append("<td>"+msg[i].id+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].firstname+" "+msg[i].lastname+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].gender+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].birthday+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].class+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].address+"</td>")
-					$('.row-student-'+i).append("<td>"+msg[i].phone+"</td>")
-					$("tbody").append('</tr>')
+					if(msg[i].studying != 'yes'){
+						$("tbody").append('<tr data-value="'+msg[i].id+'" class="bg-danger row-student-'+i+'">')
+						$('.row-student-'+i).append("<td class='student-id'>"+msg[i].id+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].firstname+" "+msg[i].lastname+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].gender+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].birthday+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].class+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].address+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].phone+"</td>")
+						$("tbody").append('</tr>')
+					}else{
+						$("tbody").append('<tr data-value="'+msg[i].id+'" class="row-student-'+i+'">')
+						$('.row-student-'+i).append("<td class='student-id'>"+msg[i].id+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].firstname+" "+msg[i].lastname+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].gender+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].birthday+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].class+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].address+"</td>")
+						$('.row-student-'+i).append("<td>"+msg[i].phone+"</td>")
+						$("tbody").append('</tr>')
+					}
 				}
 				$(".table").append("</tbody>")
 			})
@@ -216,4 +229,37 @@ function student(){
 	    }	
 	})
 	
+}
+
+function getAllInfoStudent(student_id){
+	request = $.ajax({
+			  url: "router/action.php",
+			  method: "POST",
+			  data: {
+			  	action: "getAllInfoStudent",
+			  	studentid: student_id
+			  },
+			  dataType: "json"
+			})
+	request.done(function(msg){
+		console.log(msg)
+	})
+}
+
+function studentEvent(){
+	$(document).on("click","tr",function(){
+		msv = $(this).find(".student-id").text()
+		getAllInfoStudent(msv)
+		$(".over").show()
+		$(".update").show()
+	})
+}
+
+function closeDiv(){
+	$('.over').on('click', function(e) {
+		if (e.target !== this)
+	    	return;
+		$(".over").hide()
+		$(".update").hide()
+	});
 }

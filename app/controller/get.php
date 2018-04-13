@@ -33,5 +33,10 @@ class app_controller_get{
 		$sudent = new app_model_getData();
 		echo json_encode($sudent->getStudent($classid));
 	}
+
+	function getAllInfoStudent($studenid){
+		$allInfoStudent = new app_model_getData();
+		echo json_encode($allInfoStudent->getAllInfoStudent($studenid));
+	}
 }
 ?>

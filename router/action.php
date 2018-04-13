@@ -31,6 +31,9 @@ switch($_POST['action']) {
 	case 'getStudent':
 		$controllerGet->getStudent($_POST['classid']);
 		break;
+	case 'getAllInfoStudent':
+		$controllerGet->getAllInfoStudent($_POST['studentid']);
+		break;
 	default:
 		# code...
 		break;
