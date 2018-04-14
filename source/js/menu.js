@@ -77,6 +77,29 @@ function majord(faculty_id){
     //majors_ele = $(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option><option>Cong nghe thong tin</option><option>Ky thuat phan mem</option>')
 }
 
+function majordInUpdate(faculty_id){
+	request = $.ajax({
+		  url: "router/action.php",
+		  method: "POST",
+		  data: {
+		  	action: "getMajors",
+		  	facultyid: faculty_id
+		  },
+		  dataType: "json"
+		})
+		request.done(function(msg) {
+			//console.log(msg)
+			for(i = 0; i < msg.length; i++){
+				for(j = 1; j< msg[i].length; j++){
+					//console.log(msg[i][j])
+					$(".majors_").append("<option data-value='"+msg[i][j-1]+"'>"+msg[i][j]+"</option>")
+				}
+			}
+		})
+
+    //majors_ele = $(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option><option>Cong nghe thong tin</option><option>Ky thuat phan mem</option>')
+}
+
 function majordEvent(){
 	$(document).on("change",".majors",function(){
 		majors_value = ""
@@ -88,7 +111,7 @@ function majordEvent(){
 	        	//console.log(majors_id)
 	        	$(".caurse").remove()
    				$(".class").remove()
-	      		caurse(majors_id)
+	      		caurse()
 	  		}else{
 	  			$(".caurse").remove()
    				$(".class").remove()
@@ -97,7 +120,7 @@ function majordEvent(){
 	}).change()
 }
 
-function caurse(majors_id){
+function caurse(){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -113,6 +136,24 @@ function caurse(majors_id){
 				$(".caurse").append("<option data-value='"+msg[i][0]+"''>"+msg[i][1]+"</option>")
 			}
 			$(".menu-form").append("</select>")
+		})
+   	//$(".menu-form").append('<select class="custom-select caurse" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
+}
+
+function caurseInUpdate(){
+	request = $.ajax({
+		  url: "router/action.php",
+		  method: "POST",
+		  data: {
+		  	action: "getCourse"
+		  },
+		  dataType: "json"
+		})
+		request.done(function(msg) {
+			for(i = 0; i < msg.length; i++){
+				//console.log(msg[i][1])
+				$(".course_").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
+			}
 		})
    	//$(".menu-form").append('<select class="custom-select caurse" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
 }
@@ -161,6 +202,33 @@ function class_(){
 				$(".class").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
 			}
 			$(".menu-form").append("</select>")
+		})
+	//$(".menu-form").append('<select class="custom-select class" id="inlineFormCustomSelect"><option selected="">Lớp ...</option><option>CNTT K14C</option><option>CNTT K14D</option>')
+}
+
+function class_InUpdate(){
+	$(".caurse_ option:selected").each(function() {
+		caurse_id = $(this).attr("data-value")
+	})
+	$(".majors_ option:selected").each(function() {
+		majors_id = $(this).attr("data-value")
+	})
+	
+	request = $.ajax({
+		  url: "router/action.php",
+		  method: "POST",
+		  data: {
+		  	action: "getClass",
+		  	majorsid: majors_id,
+		  	courseid: caurse_id
+		  },
+		  dataType: "json"
+		})
+		request.done(function(msg) {
+			//console.log(msg)
+			for(i = 0; i < msg.length; i++){
+				$(".class_").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
+			}
 		})
 	//$(".menu-form").append('<select class="custom-select class" id="inlineFormCustomSelect"><option selected="">Lớp ...</option><option>CNTT K14C</option><option>CNTT K14D</option>')
 }
@@ -242,17 +310,22 @@ function getAllInfoStudent(student_id){
 			  dataType: "json"
 			})
 	request.done(function(msg){
-		console.log(msg.address)
+		console.log(msg)
 		$(".firstname").val(msg.firstname)
 		$(".lastname").val(msg.lastname)
 		$(".studentid").val(msg.id)
 		$(".gender").append('<option selected>'+msg.gender+'</option>')
 		$(".country").append('<option selected>'+msg.country+'</option>')
 		$(".residence_").val(msg.address)
-		$(".facluty_").append('<option selected>'+msg.faculty+'</option>')
-		$(".majors_").append('<option selected>'+msg.majors+'</option>')
-		$(".course_").append('<option selected>'+msg.course+'</option>')
-		$(".class_").append('<option selected>'+msg.class+'</option>')
+		$(".parent").val(msg.parent)
+		$(".parent-number").val(msg.parent_number)
+		$(".facluty_").append('<option data-value="'+msg.facultyid+'" selected>'+msg.faculty+'</option>')
+		$(".majors_").append('<option data-value="'+msg.majorsid+'"selected>'+msg.majors+'</option>')
+		$(".course_").append('<option data-value="'+msg.courseid+'"selected>'+msg.course+'</option>')
+		$(".class_").append('<option data-value="'+msg.classid+'" selected>'+msg.class+'</option>')
+		majordInUpdate(msg.facultyid)
+		caurseInUpdate()
+		class_InUpdate()
 	})
 }
 
@@ -277,6 +350,8 @@ function closeDiv(){
 		$(".gender").find("option").remove()
 		$(".country").find("option").remove()
 		$(".residence_").val("")
+		$(".parent").val("")
+		$(".parent-number").val("")
 		$(".facluty_").find("option").remove()
 		$(".majors_").find("option").remove()
 		$(".course_").find("option").remove()
