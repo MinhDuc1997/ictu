@@ -186,3 +186,19 @@ h4 {
     text-align: center;
     margin-bottom: 41px !important;
 }
+
+.add {
+    position: absolute;
+    z-index: 1;
+    right: 4%;
+    top: 87%;
+    background-color: orange;
+    border-radius: 50%;
+    width: 49px;
+    height: 49px;
+    border: navajowhite;
+    color: #fff;
+    font-size: 29px;
+    font-weight: bold;
+    box-shadow: inherit;
+}

@@ -1,6 +1,22 @@
 <?php
 class app_model_getData{
 
+    function getProvince(){
+        $conn = mysqli_connect("localhost", "root", "", "ictu");
+        mysqli_set_charset($conn, 'utf8');
+        $query = "SELECT * FROM province";
+        $result = mysqli_query($conn, $query);
+
+        $arr = [];
+        while($rows = mysqli_fetch_assoc($result)){   
+            $arr_temp = [];     
+            $arr_temp[] = $rows['provinceid'];
+            $arr_temp[] = $rows['provincename'];
+            $arr[] = $arr_temp;
+        }
+        return $arr;
+    }
+
 	function getFaculty(){
 	    $sql = "SELECT * FROM faculty";
 	    $query = connect()->query($sql);
@@ -161,16 +177,20 @@ class app_model_getData{
         
         $arr = '';
         while($rows = mysqli_fetch_assoc($result)){
+            $ymd = $rows['birthday'];
+            $dmy = date("m/d/Y", strtotime($ymd));
             if(empty($rows['isdorm'])){
                 $arr_temp = array('id' =>  $rows['studentid'],
                 'firstname' => $rows['firstname'],
                 'lastname' =>  $rows['lastname'],
-                'birthday' => $rows['birthday'],
+                'birthday' => $dmy,
                 'gender' => $rows['gender'],
+                'countryid' =>$rows['provinceid'],
                 'country' => $rows['provincename'],
                 'address' => $rows['ismotel'],
                 'studying' => $rows['studying'],
                 'phone' => $rows['phone'],
+                'email' => $rows['email'],
                 'facultyid' => $rows['facultyid'],
                 'faculty' => $rows['facultyname'],
                 'majorsid' => $rows['majorsid'],
@@ -187,12 +207,14 @@ class app_model_getData{
                 $arr_temp = array('id' =>  $rows['studentid'],
                 'firstname' => $rows['firstname'],
                 'lastname' =>  $rows['lastname'],
-                'birthday' => $rows['birthday'],
+                'birthday' => $dmy,
                 'gender' => $rows['gender'],
+                'countryid' =>$rows['provinceid'],
                 'country' => $rows['provincename'],
                 'address' => $rows['isdorm'],
                 'studying' => $rows['studying'],
                 'phone' => $rows['phone'],
+                'email' => $rows['email'],
                 'facultyid' => $rows['facultyid'],
                 'faculty' => $rows['facultyname'],
                 'majorsid' => $rows['majorsid'],

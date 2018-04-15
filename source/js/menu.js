@@ -1,13 +1,34 @@
+var status = ""
+
 function menu(){
 	faculty();
 	facultyEvent();
-	majordEvent();
-	caurseEvent();
+	majorsEvent();
+	courceEvent();
 	classEvent();
 	student();
 	studentEvent();
 	closeDiv();
-	majordInUpdateEvent();
+	majorsInUpdateEvent();
+	add();
+	facultyUpdateEvent();
+	courceInUpdateEvent();
+}
+
+function province(){
+	request = $.ajax({
+		  url: "router/action.php",
+		  method: "POST",
+		  data: {
+		  	action: "getProvince",
+		  },
+		  dataType: "json"
+		})
+		request.done(function(msg) {
+			for(i = 0; i < msg.length; i++){
+				$(".country").append("<option data-value='"+msg[i][0]+"' >"+msg[i][1]+"</option>")
+			}
+		})
 }
 
 function faculty(){
@@ -31,6 +52,43 @@ function faculty(){
 
 }
 
+function facultyInUpdate(){
+	request = $.ajax({
+		  url: "router/action.php",
+		  method: "POST",
+		  data: {
+		  	action: "getFaculty",
+		  },
+		  dataType: "json"
+		})
+		request.done(function(msg) {
+			$(".faculty_").append("<option>Khoa ...</option>")
+			for(i = 0; i < msg.length; i++){
+				for(j = 1; j< msg[i].length; j++){
+					$(".faculty_").append("<option data-value='"+msg[i][j-1]+"'>"+msg[i][j]+"</option>")
+				}
+			}
+		})
+	}
+
+function facultyUpdateEvent(){
+	$(document).on("change",".faculty_",function(){
+	    faculty_value = ""
+	    faculty_id = ""
+	    $(".faculty_ option:selected").each(function() {
+	    	faculty_value = $(this).text()
+	      	faculty_id += $(this).attr("data-value")
+	      	$(".majors_").find("option").remove()
+	      	$(".course_").find("option").remove()
+	      	$(".class_").find("option").remove()
+	      	courceInUpdate()
+	      	if(faculty_value != "Khoa ..."){
+	      		majorsInUpdate(faculty_id)
+	      	}
+	    })
+	  }).change()
+}
+
 function facultyEvent(){
 	$(document).on("change",".faculty",function(){
 	    faculty_value = ""
@@ -39,21 +97,20 @@ function facultyEvent(){
 	    	faculty_value += $(this).text()	
 	      	faculty_id += $(this).attr("data-value")
 	      	if(faculty_value !== "Khoa ..."){
-	      		//console.log(faculty_id)
 	      		$(".majors").remove()
-   				$(".caurse").remove()
+   				$(".cource").remove()
     			$(".class").remove()
-	      		majord(faculty_id)
+	      		majors(faculty_id)
 	      	}else{
 	      		$(".majors").remove()
-   				$(".caurse").remove()
+   				$(".cource").remove()
     			$(".class").remove()
 	      	}      	
 	    })
 	  }).change()
 }
 
-function majord(faculty_id){
+function majors(faculty_id){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -64,7 +121,6 @@ function majord(faculty_id){
 		  dataType: "json"
 		})
 		request.done(function(msg) {
-			//console.log(msg)
 			$(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option>')
 			for(i = 0; i < msg.length; i++){
 				for(j = 1; j< msg[i].length; j++){
@@ -78,7 +134,7 @@ function majord(faculty_id){
     //majors_ele = $(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option><option>Cong nghe thong tin</option><option>Ky thuat phan mem</option>')
 }
 
-function majordInUpdate(faculty_id){
+function majorsInUpdate(faculty_id){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -101,29 +157,25 @@ function majordInUpdate(faculty_id){
     //majors_ele = $(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option><option>Cong nghe thong tin</option><option>Ky thuat phan mem</option>')
 }
 
-function majordInUpdateEvent(){
+function majorsInUpdateEvent(){
 	$(document).on("change",".majors_",function(){
 		majors_value = ""
 		majors_id = ""
 	    $(".majors_ option:selected").each(function() {
 	    	majors_value += $(this).text()
 	        majors_id += $(this).attr("data-value")
-	        console.log(majors_value)
-	        if(majors_value !== "Ngành ..."){
-	        	//console.log(majors_id)
-	        	$(".caurse").remove()
-   				$(".class").remove()
-	      		caurse()
-	  		}else{
-	  			$(".caurse").remove()
-   				$(".class").remove()
-	  		}
+   			$(".class_").find('option').remove()
+   			if(status === "update"){
+	      		class_InUpdate()
+	      	}else{
+	      		class_InUpdate()
+	      	}
 	    })
 	}).change()
 }
 
 
-function majordEvent(){
+function majorsEvent(){
 	$(document).on("change",".majors",function(){
 		majors_value = ""
 		majors_id = ""
@@ -131,19 +183,18 @@ function majordEvent(){
 	    	majors_value += $(this).text()
 	        majors_id += $(this).attr("data-value")
 	        if(majors_value !== "Ngành ..."){
-	        	//console.log(majors_id)
-	        	$(".caurse").remove()
+	        	$(".cource").remove()
    				$(".class").remove()
-	      		caurse()
+	      		cource()
 	  		}else{
-	  			$(".caurse").remove()
+	  			$(".cource").remove()
    				$(".class").remove()
 	  		}
 	    })
 	}).change()
 }
 
-function caurse(){
+function cource(){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -153,17 +204,16 @@ function caurse(){
 		  dataType: "json"
 		})
 		request.done(function(msg) {
-			$(".menu-form").append('<select class="custom-select caurse" id="inlineFormCustomSelect"><option selected="">Khóa ...</option>')
+			$(".menu-form").append('<select class="custom-select cource" id="inlineFormCustomSelect"><option selected="">Khóa ...</option>')
 			for(i = 0; i < msg.length; i++){
-				//console.log(msg[i][1])
-				$(".caurse").append("<option data-value='"+msg[i][0]+"''>"+msg[i][1]+"</option>")
+				$(".cource").append("<option data-value='"+msg[i][0]+"''>"+msg[i][1]+"</option>")
 			}
 			$(".menu-form").append("</select>")
 		})
-   	//$(".menu-form").append('<select class="custom-select caurse" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
+   	//$(".menu-form").append('<select class="custom-select cource" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
 }
 
-function caurseInUpdate(){
+function courceInUpdate(){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -173,23 +223,36 @@ function caurseInUpdate(){
 		  dataType: "json"
 		})
 		request.done(function(msg) {
+			$(".course_").append("<option>Khóa ...</option>")
 			for(i = 0; i < msg.length; i++){
-				//console.log(msg[i][1])
 				$(".course_").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
 			}
 		})
-   	//$(".menu-form").append('<select class="custom-select caurse" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
 }
 
-function caurseEvent(){
-	$(document).on("change",".caurse",function(){
-		caurse_value = ""
-		caurse_id = ""
-	    $(".caurse option:selected").each(function() {
-	      caurse_value += $(this).text()
-	      caurse_id += $(this).attr("data-value")
-	      if(caurse_value !== "Khóa ..."){
-	      	//console.log(caurse_value)
+function courceInUpdateEvent(){
+	$(document).on("change",".course_",function(){
+		cource_value = ""
+		cource_id = ""
+		$(".class_").find('option').remove()
+		$(".course_ option:selected").each(function() {
+			cource_value += $(this).text()
+	      	cource_id += $(this).attr("data-value")
+			if(cource_value !== "Khóa ..."){		
+	      		class_InUpdate()
+	      	}
+		})
+	})
+}
+
+function courceEvent(){
+	$(document).on("change",".cource",function(){
+		cource_value = ""
+		cource_id = ""
+	    $(".cource option:selected").each(function() {
+	      cource_value += $(this).text()
+	      cource_id += $(this).attr("data-value")
+	      if(cource_value !== "Khóa ..."){
 	      	$(".class").remove()
 	      	class_();
 	      }else{
@@ -201,8 +264,8 @@ function caurseEvent(){
 }
 
 function class_(){
-	$(".caurse option:selected").each(function() {
-		caurse_id = $(this).attr("data-value")
+	$(".cource option:selected").each(function() {
+		cource_id = $(this).attr("data-value")
 	})
 	$(".majors option:selected").each(function() {
 		majors_id = $(this).attr("data-value")
@@ -214,12 +277,11 @@ function class_(){
 		  data: {
 		  	action: "getClass",
 		  	majorsid: majors_id,
-		  	courseid: caurse_id
+		  	courseid: cource_id
 		  },
 		  dataType: "json"
 		})
 		request.done(function(msg) {
-			//console.log(msg)
 			$(".menu-form").append('<select class="custom-select class" id="inlineFormCustomSelect"><option selected="">Lớp ...</option>')
 			for(i = 0; i < msg.length; i++){
 				$(".class").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
@@ -230,8 +292,8 @@ function class_(){
 }
 
 function class_InUpdate(){
-	$(".caurse_ option:selected").each(function() {
-		caurse_id = $(this).attr("data-value")
+	$(".cource_ option:selected").each(function() {
+		cource_id = $(this).attr("data-value")
 	})
 	$(".majors_ option:selected").each(function() {
 		majors_id = $(this).attr("data-value")
@@ -243,12 +305,11 @@ function class_InUpdate(){
 		  data: {
 		  	action: "getClass",
 		  	majorsid: majors_id,
-		  	courseid: caurse_id
+		  	courseid: cource_id
 		  },
 		  dataType: "json"
 		})
 		request.done(function(msg) {
-			//console.log(msg)
 			for(i = 0; i < msg.length; i++){
 				$(".class_").append("<option data-value='"+msg[i][0]+"'>"+msg[i][1]+"</option>")
 			}
@@ -333,31 +394,45 @@ function getAllInfoStudent(student_id){
 			  dataType: "json"
 			})
 	request.done(function(msg){
-		console.log(msg)
 		$(".firstname").val(msg.firstname)
 		$(".lastname").val(msg.lastname)
 		$(".studentid").val(msg.id)
-		$(".gender").append('<option selected>'+msg.gender+'</option>')
-		$(".country").append('<option selected>'+msg.country+'</option>')
+		if(msg.gender === "Nam"){
+			$(".gender").append('<option selected>'+msg.gender+'</option>')
+			$(".gender").append("<option>Nữ</option>")
+		}else{
+			$(".gender").append('<option selected>'+msg.gender+'</option>')
+			$(".gender").append("<option>Nam</option>")
+		}
+		$(".country").append('<option data-value="'+msg.countryid+'" selected>'+msg.country+'</option>')
+		$(".birthday_").val(msg.birthday)
+		$(".phone_").val(msg.phone)
+		$(".email_").val(msg.email)
 		$(".residence_").val(msg.address)
 		$(".parent").val(msg.parent)
 		$(".parent-number").val(msg.parent_number)
-		$(".facluty_").append('<option data-value="'+msg.facultyid+'" selected>'+msg.faculty+'</option>')
+		$(".faculty_").append('<option data-value="'+msg.facultyid+'" selected>'+msg.faculty+'</option>')
 		$(".majors_").append('<option data-value="'+msg.majorsid+'"selected>'+msg.majors+'</option>')
 		$(".course_").append('<option data-value="'+msg.courseid+'"selected>'+msg.course+'</option>')
 		$(".class_").append('<option data-value="'+msg.classid+'" selected>'+msg.class+'</option>')
-		majordInUpdate(msg.facultyid)
-		caurseInUpdate()
+		majorsInUpdate(msg.facultyid)
+		// /courceInUpdate()
 		class_InUpdate()
+		province()
 	})
 }
 
 function studentEvent(){
 	$(document).on("click","tr",function(){
+		status = 'update'
 		msv = $(this).find(".student-id").text()
-		getAllInfoStudent(msv)
-		$(".over").show()
-		$(".update").show()
+		if(msv != ''){
+			getAllInfoStudent(msv)
+			$(".over").show()
+			$(".update").show()
+			$(".title_").text("Xem/cập nhật thông tin sinh viên")
+			$(".btn-update-student").text("Cập nhật")
+		}
 	})
 }
 
@@ -372,12 +447,31 @@ function closeDiv(){
 		$(".studentid").val("")
 		$(".gender").find("option").remove()
 		$(".country").find("option").remove()
+		$(".birthday_").val("")
+		$(".phone_").val("")
+		$(".email_").val("")
 		$(".residence_").val("")
 		$(".parent").val("")
 		$(".parent-number").val("")
-		$(".facluty_").find("option").remove()
+		$(".faculty_").find("option").remove()
 		$(".majors_").find("option").remove()
 		$(".course_").find("option").remove()
 		$(".class_").find("option").remove()
+		$(".country").find("option").remove()
 	});
+}
+
+function add(){
+	$(".add").click(function(){
+		status = 'add'
+		province()
+		$(".gender").append("<option>Nam</option>")
+		$(".gender").append("<option>Nữ</option>")
+		$(".over").show()
+		$(".update").show()
+		$(".title_").text("Thêm sinh viên")
+		$(".btn-update-student").text("Thêm")
+		facultyInUpdate()
+		courceInUpdate()
+	})
 }

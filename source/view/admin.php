@@ -17,23 +17,27 @@
 <?php if(!isset($_COOKIE['username'])) header('location: login')?>
 
 <body onload="menu()">
+<div class="button-add">
+  <button class="add">+</button>
+</div>
+
 <div class="over">
   <div class="update">
-    <h4>Xem/cập nhật thông tin sinh viên</h4>
-    <form>
+    <h4 class="title_">Xem/cập nhật thông tin sinh viên</h4>
+    <form method="post" onsubmit="return false">
       <div class="row h-88 ">
         <div class="col-7 l-1">
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Họ đệm</label>
-            <input type="text" class="firstname form-control" id="formGroupExampleInput">
+            <input type="text" class="firstname form-control" id="formGroupExampleInput" required="">
           </div>
            <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput2">Tên</label>
-            <input type="text" class="lastname form-control" id="formGroupExampleInput2">
+            <input type="text" class="lastname form-control" id="formGroupExampleInput2" required="">
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Mã sv</label>
-            <input type="text" class="studentid form-control" id="formGroupExampleInput">
+            <input type="text" class="studentid form-control" id="formGroupExampleInput"  disabled>
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Giới tinh</label>
@@ -47,25 +51,33 @@
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="example-date-input" class="mr-sm-2">Ngày sinh</label>
-            <input class="date form-control" type="date" id="example-date-input">
+            <input class="birthday_ date form-control" value="" type="text" id="example-date-input">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput">SĐT</label>
+            <input type="text" class="phone_ form-control" id="formGroupExampleInput" required="">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label for="formGroupExampleInput">Email</label>
+            <input type="text" class="email_ form-control" id="formGroupExampleInput" required="">
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Cư chú</label>
-            <input type="text" class="residence_ form-control" id="formGroupExampleInput">
+            <input type="text" class="residence_ form-control" id="formGroupExampleInput" required="">
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Giám hộ</label>
-            <input type="text" class="parent form-control" id="formGroupExampleInput">
+            <input type="text" class="parent form-control" id="formGroupExampleInput" required="">
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">SĐT người giám hộ</label>
-            <input type="text" class="parent-number form-control" id="formGroupExampleInput">
+            <input type="text" class="parent-number form-control" id="formGroupExampleInput" required="">
           </div>
         </div>
         <div class="col-5 l-2">
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Khoa</label>
-            <select class="facluty_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            <select class="faculty_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
             </select>
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
@@ -75,7 +87,7 @@
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Khóa</label>
-            <select class="course_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            <select class="course_ c_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
             </select>
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
@@ -86,7 +98,7 @@
         </div>
       </div>  
       
-      <button type="button" name="btn-update-student" class="btn btn-primary btn-sm btn-update-student">Cập nhật</button>
+      <button type="submit" name="btn-update-student" class="btn btn-primary btn-sm btn-update-student">Cập nhật</button>
     </form>
   </div>
 </div>

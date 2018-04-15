@@ -38,5 +38,10 @@ class app_controller_get{
 		$allInfoStudent = new app_model_getData();
 		echo json_encode($allInfoStudent->getAllInfoStudent($studenid));
 	}
+
+	function getProvince(){
+		$province = new app_model_getData();
+		echo json_encode($province->getProvince());
+	}
 }
 ?>
