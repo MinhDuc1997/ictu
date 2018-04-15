@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2018 at 07:29 PM
+-- Generation Time: Apr 15, 2018 at 09:11 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -551,16 +551,30 @@ INSERT INTO `majors` (`majorsid`, `majorsname`, `facultyid`) VALUES
 CREATE TABLE `parent` (
   `studentid` varchar(20) DEFAULT NULL,
   `parentname` varchar(30) DEFAULT NULL,
-  `phone` int(15) DEFAULT NULL
+  `parentphone` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parent`
 --
 
-INSERT INTO `parent` (`studentid`, `parentname`, `phone`) VALUES
+INSERT INTO `parent` (`studentid`, `parentname`, `parentphone`) VALUES
 ('DTC155D4802010103', 'Phạm Thị Thanh Tân', 985290912),
-('DTC155D4802010204', 'Nguyễn Minh A', 984327542);
+('DTC155D4802010204', 'Nguyễn Minh A', 984327542),
+('DTC15HD4801030003', 'Nguyễn Thị A', 948374954),
+('DTC15HD4802010021', 'Nguyễn Văn B', 984753421),
+('DTC15HD4802010132', 'Nguyễn Văn C', 985748543),
+('DTC15HD4802010286', 'Nguyễn Thị B', 948375843),
+('DTC15HD4802010408', 'Nguyễn Thị C', 958493845),
+('DTC155D3201040008', 'Nguyễn Văn D', 987584753),
+('DTC155D4802010001', 'Nguyễn Thị D', 984958495),
+('DTC155D4802010002', 'Trần Văn A', 948473495),
+('DTC155D4802010003', 'Trần Văn B', 984738453),
+('DTC155D4802010004', 'Trần Thị A', 958485945),
+('DTC155D4802010055', 'Nguyễn Văn C', 984737432),
+('DTC155D4802010056', 'Trần Thị C', 948374854),
+('DTC155D4802010077', 'Nguyễn Văn E', 948384934),
+('DTC155D4802010575', 'Phạm Văn A', 94873948);
 
 -- --------------------------------------------------------
 
@@ -760,6 +774,7 @@ ALTER TABLE `majors`
 -- Indexes for table `parent`
 --
 ALTER TABLE `parent`
+  ADD UNIQUE KEY `studentid` (`studentid`),
   ADD KEY `fk_student` (`studentid`);
 
 --

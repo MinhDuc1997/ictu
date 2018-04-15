@@ -7,6 +7,7 @@ function menu(){
 	student();
 	studentEvent();
 	closeDiv();
+	majordInUpdateEvent();
 }
 
 function faculty(){
@@ -99,6 +100,28 @@ function majordInUpdate(faculty_id){
 
     //majors_ele = $(".menu-form").append('<select class="custom-select majors" id="inlineFormCustomSelect"><option selected="">Ngành ...</option><option>Cong nghe thong tin</option><option>Ky thuat phan mem</option>')
 }
+
+function majordInUpdateEvent(){
+	$(document).on("change",".majors_",function(){
+		majors_value = ""
+		majors_id = ""
+	    $(".majors_ option:selected").each(function() {
+	    	majors_value += $(this).text()
+	        majors_id += $(this).attr("data-value")
+	        console.log(majors_value)
+	        if(majors_value !== "Ngành ..."){
+	        	//console.log(majors_id)
+	        	$(".caurse").remove()
+   				$(".class").remove()
+	      		caurse()
+	  		}else{
+	  			$(".caurse").remove()
+   				$(".class").remove()
+	  		}
+	    })
+	}).change()
+}
+
 
 function majordEvent(){
 	$(document).on("change",".majors",function(){
