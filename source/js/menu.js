@@ -1,4 +1,3 @@
-var status = ""
 
 function menu(){
 	faculty();
@@ -165,11 +164,7 @@ function majorsInUpdateEvent(){
 	    	majors_value += $(this).text()
 	        majors_id += $(this).attr("data-value")
    			$(".class_").find('option').remove()
-   			if(status === "update"){
-	      		class_InUpdate()
-	      	}else{
-	      		class_InUpdate()
-	      	}
+	      	class_InUpdate()
 	    })
 	}).change()
 }
@@ -292,6 +287,8 @@ function class_(){
 }
 
 function class_InUpdate(){
+	course_id = ""
+	majors_id = ""
 	$(".cource_ option:selected").each(function() {
 		cource_id = $(this).attr("data-value")
 	})
@@ -463,7 +460,6 @@ function closeDiv(){
 
 function add(){
 	$(".add").click(function(){
-		status = 'add'
 		province()
 		$(".gender").append("<option>Nam</option>")
 		$(".gender").append("<option>Nữ</option>")

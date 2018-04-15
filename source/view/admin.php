@@ -45,11 +45,6 @@
             </select>
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
-            <label class="mr-sm-2" for="inlineFormCustomSelect">Quê quán</label>
-            <select class="country custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
-            </select>
-          </div>
-          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="example-date-input" class="mr-sm-2">Ngày sinh</label>
             <input class="birthday_ date form-control" value="" type="text" id="example-date-input">
           </div>
@@ -60,6 +55,11 @@
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Email</label>
             <input type="text" class="email_ form-control" id="formGroupExampleInput" required="">
+          </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Quê quán</label>
+            <select class="country custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
+            </select>
           </div>
           <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1">
             <label for="formGroupExampleInput">Cư chú</label>

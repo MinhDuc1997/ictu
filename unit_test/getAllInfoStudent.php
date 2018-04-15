@@ -10,7 +10,6 @@
 	    while($rows = mysqli_fetch_assoc($result)){
 	    	$ymd = $rows['birthday'];
 			$dmy = date("m/d/Y", strtotime($ymd));
-	    	if(empty($rows['isdorm'])){
 	    		$arr_temp = array('id' =>  $rows['studentid'],
 	    		'firstname' => $rows['firstname'],
 	    		'lastname' =>  $rows['lastname'],
@@ -18,31 +17,7 @@
 	    		'gender' => $rows['gender'],
 	    		'countryid' =>$rows['provinceid'],
 	    		'country' => $rows['provincename'],
-	    		'address' => $rows['ismotel'],
-	    		'studying' => $rows['studying'],
-	    		'phone' => $rows['phone'],
-	    		'email' => $rows['email'],
-	    		'facultyid' => $rows['facultyid'],
-	    		'faculty' => $rows['facultyname'],
-	    		'majorsid' => $rows['majorsid'],
-	    		'majors' => $rows['majorsname'],
-	    		'courseid' => $rows['courseid'],
-	    		'course' => $rows['coursename'],
-	    		'classid' =>  $rows['classid'],
-	    		'class' =>  $rows['classname'],
-	    		'parent' => $rows['parentname'],
-	    		'parent_number' =>$rows['parentphone']
-	    		);
-	    	}
-	    	if(empty($rows['ismotel'])){
-	    		$arr_temp = array('id' =>  $rows['studentid'],
-	    		'firstname' => $rows['firstname'],
-	    		'lastname' =>  $rows['lastname'],
-	    		'birthday' => $dmy,
-	    		'gender' => $rows['gender'],
-	    		'countryid' =>$rows['provinceid'],
-	    		'country' => $rows['provincename'],
-	    		'address' => $rows['isdorm'],
+	    		'address' => $rows['address'],
 	    		'studying' => $rows['studying'],
 	    		'phone' => $rows['phone'],
 	    		'email' => $rows['email'],
@@ -57,7 +32,6 @@
 	    		'parent' => $rows['parentname'],
 	    		'parent_number' =>$rows['parentphone']
 	    		);	
-	    	}
 	    	$arr[] = $arr_temp;
 	    }
 	    return $arr;

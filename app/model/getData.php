@@ -20,7 +20,6 @@ class app_model_getData{
 	function getFaculty(){
 	    $sql = "SELECT * FROM faculty";
 	    $query = connect()->query($sql);
-
 	    
 	    $arr = [];
 	    while($rows = $query->fetch_assoc()){   
@@ -142,30 +141,16 @@ class app_model_getData{
         
         $arr = [];
         while($rows = mysqli_fetch_assoc($result)){
-            if(empty($rows['isdorm'])){
                 $arr_temp = array('id' =>  $rows['studentid'],
                 'firstname' => $rows['firstname'],
                 'lastname' =>  $rows['lastname'],
                 'birthday' => $rows['birthday'],
                 'gender' => $rows['gender'],
                 'class' =>  $rows['classname'],
-                'address' => $rows['ismotel'],
-                'studying' => $rows['studying'],
-                'phone' => $rows['phone']
-                );
-            }
-            if(empty($rows['ismotel'])){
-                $arr_temp = array('id' =>  $rows['studentid'],
-                'firstname' => $rows['firstname'],
-                'lastname' =>  $rows['lastname'],
-                'birthday' => $rows['birthday'],
-                'gender' => $rows['gender'],
-                'class' =>  $rows['classname'],
-                'address' => $rows['isdorm'],
+                'address' => $rows['address'],
                 'studying' => $rows['studying'],
                 'phone' => $rows['phone']
                 );  
-            }
             $arr[] = $arr_temp;
         }
         return $arr;
@@ -177,20 +162,17 @@ class app_model_getData{
         
         $arr = '';
         while($rows = mysqli_fetch_assoc($result)){
-            $ymd = $rows['birthday'];
-            $dmy = date("m/d/Y", strtotime($ymd));
-            if(empty($rows['isdorm'])){
                 $arr_temp = array('id' =>  $rows['studentid'],
                 'firstname' => $rows['firstname'],
                 'lastname' =>  $rows['lastname'],
-                'birthday' => $dmy,
+                'birthday' => $rows['birthday'],
                 'gender' => $rows['gender'],
                 'countryid' =>$rows['provinceid'],
                 'country' => $rows['provincename'],
-                'address' => $rows['ismotel'],
+                'address' => $rows['address'],
                 'studying' => $rows['studying'],
-                'phone' => $rows['phone'],
                 'email' => $rows['email'],
+                'phone' => $rows['phone'],
                 'facultyid' => $rows['facultyid'],
                 'faculty' => $rows['facultyname'],
                 'majorsid' => $rows['majorsid'],
@@ -202,31 +184,6 @@ class app_model_getData{
                 'parent' => $rows['parentname'],
                 'parent_number' =>$rows['parentphone']
                 );
-            }
-            if(empty($rows['ismotel'])){
-                $arr_temp = array('id' =>  $rows['studentid'],
-                'firstname' => $rows['firstname'],
-                'lastname' =>  $rows['lastname'],
-                'birthday' => $dmy,
-                'gender' => $rows['gender'],
-                'countryid' =>$rows['provinceid'],
-                'country' => $rows['provincename'],
-                'address' => $rows['isdorm'],
-                'studying' => $rows['studying'],
-                'phone' => $rows['phone'],
-                'email' => $rows['email'],
-                'facultyid' => $rows['facultyid'],
-                'faculty' => $rows['facultyname'],
-                'majorsid' => $rows['majorsid'],
-                'majors' => $rows['majorsname'],
-                'courseid' => $rows['courseid'],
-                'course' => $rows['coursename'],
-                'classid' =>  $rows['classid'],
-                'class' =>  $rows['classname'],
-                'parent' => $rows['parentname'],
-                'parent_number' =>$rows['parentphone']
-                );  
-            }
             $arr = $arr_temp;
         }
         return $arr;

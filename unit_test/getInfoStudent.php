@@ -7,30 +7,16 @@
 	    
 	    $arr = [];
 	    while($rows = mysqli_fetch_assoc($result)){
-	    	if(empty($rows['isdorm'])){
 	    		$arr_temp = array('id' =>  $rows['studentid'],
 	    		'firstname' => $rows['firstname'],
 	    		'lastname' =>  $rows['lastname'],
 	    		'birthday' => $rows['birthday'],
 	    		'gender' => $rows['gender'],
 	    		'class' =>  $rows['classname'],
-	    		'address' => $rows['ismotel'],
-	    		'studying' => $rows['studying'],
-	    		'phone' => $rows['phone']
-	    		);
-	    	}
-	    	if(empty($rows['ismotel'])){
-	    		$arr_temp = array('id' =>  $rows['studentid'],
-	    		'firstname' => $rows['firstname'],
-	    		'lastname' =>  $rows['lastname'],
-	    		'birthday' => $rows['birthday'],
-	    		'gender' => $rows['gender'],
-	    		'class' =>  $rows['classname'],
-	    		'address' => $rows['isdorm'],
+	    		'address' => $rows['address'],
 	    		'studying' => $rows['studying'],
 	    		'phone' => $rows['phone']
 	    		);	
-	    	}
 	    	$arr[] = $arr_temp;
 	    }
 	    return $arr;

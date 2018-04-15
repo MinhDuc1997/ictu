@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2018 at 05:21 PM
+-- Generation Time: Apr 15, 2018 at 06:25 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -665,31 +665,30 @@ INSERT INTO `province` (`provinceid`, `provincename`) VALUES
 CREATE TABLE `residence` (
   `studentid` varchar(20) DEFAULT NULL,
   `provinceid` int(11) DEFAULT NULL,
-  `isdorm` varchar(255) DEFAULT NULL,
-  `ismotel` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `residence`
 --
 
-INSERT INTO `residence` (`studentid`, `provinceid`, `isdorm`, `ismotel`) VALUES
-('DTC155D4802010204', 50, NULL, 'Xóm trọ cô Tân'),
-('DTC155D4802010103', 50, NULL, 'Tổ 13, phường Tân Thịnh, TPTN'),
-('DTC15HD4801030003', 50, 'KTX A10 P10', NULL),
-('DTC15HD4802010021', 50, NULL, 'Tổ 13, Xã Quyết Thắng, TPTN'),
-('DTC15HD4802010132', 50, 'KTX A1 P1', NULL),
-('DTC15HD4802010286', 50, 'KTX A1 P1', NULL),
-('DTC15HD4802010408', 50, 'KTX A1 P2', NULL),
-('DTC155D3201040008', 50, NULL, 'Tổ 12 Xã Quyết Thắng TPTN'),
-('DTC155D4802010001', 50, 'KTX A1 P2', NULL),
-('DTC155D4802010002', 50, NULL, 'Tổ 13 Xã Quyết Thắng TPTN'),
-('DTC155D4802010003', 50, 'KTX A1 P3', NULL),
-('DTC155D4802010004', 50, 'KTX A1 P3', NULL),
-('DTC155D4802010055', 50, 'KTX A1 P3', NULL),
-('DTC155D4802010056', 50, NULL, 'Tổ 12 Xã Quyết Thắng TPTN'),
-('DTC155D4802010077', 50, 'KTX A2 P1', NULL),
-('DTC155D4802010575', 50, 'KTX A2 P2', NULL);
+INSERT INTO `residence` (`studentid`, `provinceid`, `address`) VALUES
+('DTC155D4802010204', 50, 'Xóm trọ cô Tân'),
+('DTC155D4802010103', 50, 'Tổ 13, phường Tân Thịnh, TPTN'),
+('DTC15HD4801030003', 50, 'KTX A10 P10'),
+('DTC15HD4802010021', 50, 'Tổ 13, Xã Quyết Thắng, TPTN'),
+('DTC15HD4802010132', 50, 'KTX A1 P1'),
+('DTC15HD4802010286', 50, 'KTX A1 P1'),
+('DTC15HD4802010408', 50, 'KTX A1 P2'),
+('DTC155D3201040008', 50, 'Tổ 12 Xã Quyết Thắng TPTN'),
+('DTC155D4802010001', 50, 'KTX A1 P2'),
+('DTC155D4802010002', 50, 'Tổ 13 Xã Quyết Thắng TPTN'),
+('DTC155D4802010003', 50, 'KTX A1 P3'),
+('DTC155D4802010004', 50, 'KTX A1 P3'),
+('DTC155D4802010055', 50, 'KTX A1 P3'),
+('DTC155D4802010056', 50, 'Tổ 12 Xã Quyết Thắng TPTN'),
+('DTC155D4802010077', 50, 'KTX A2 P1'),
+('DTC155D4802010575', 50, 'KTX A2 P2');
 
 -- --------------------------------------------------------
 
