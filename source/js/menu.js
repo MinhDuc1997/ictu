@@ -416,6 +416,13 @@ function getAllInfoStudent(student_id){
 		$(".majors_").append('<option data-value="'+msg.majorsid+'"selected>'+msg.majors+'</option>')
 		$(".course_").append('<option data-value="'+msg.courseid+'"selected>'+msg.course+'</option>')
 		$(".class_").append('<option data-value="'+msg.classid+'" selected>'+msg.class+'</option>')
+		if(msg.studying === "yes"){
+			$(".study_").append('<option data-value="'+msg.studying+'" selected>Đang học</option>')
+			$(".study_").append('<option data-value="no">Không học</option>')
+		}else{
+			$(".study_").append('<option data-value="'+msg.studying+'" selected>Không học</option>')
+			$(".study_").append('<option data-value="yes">Đang học</option>')
+		}
 		majorsInUpdate(msg.facultyid)
 		// /courseInUpdate()
 		class_InUpdate()

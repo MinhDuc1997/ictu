@@ -14,6 +14,7 @@ function updateStudent(){
 		majorsid = ""
 		courseid = "0"
 		classid = ""
+		studying = ""
 	$(document).on("click",".btn-update-student",function(){
 		if(status == "update"){
 		    firstname = $(".firstname").val()
@@ -58,6 +59,11 @@ function updateStudent(){
 		    	classid = $(this).attr("data-value")
 		    })
 
+		    $(".study_ option:selected").each(function() {
+		    	studying = $(this).attr("data-value")
+		    })
+
+
 		    request = $.ajax({
 			  url: "router/action.php",
 			  method: "POST",
@@ -74,11 +80,13 @@ function updateStudent(){
 			  	parentname: parentname,
 			  	parentphone: parentphone,
 			  	address: residence,
-			  	classid: classid
+			  	classid: classid,
+			  	studying: studying
 			  },
 			  dataType: "html"
 			})
 			request.done(function(msg) {
+				console.log(msg)
 				if(msg.indexOf('0') == -1){
 					console.log('update ok')
 					$(".noti").find("span").remove()
@@ -86,7 +94,7 @@ function updateStudent(){
 				}else{
 					console.log('update false')
 					$(".noti").find("span").remove()
-					$(".noti").html("<span style='color: green'>Lỗi</span>")
+					$(".noti").html("<span style='color: red'>Lỗi</span>")
 				}
 			})	    	    
 
@@ -103,7 +111,7 @@ function updateStudent(){
 			parentphone+''+
 			facultyid+''+
 			majorsid+''+
-			courseid+''+classid)
+			courseid+''+classid+''+studying)
 		}
 	})
 }

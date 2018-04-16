@@ -92,5 +92,15 @@ class app_model_updateData{
 		}
 		return '0';
 	}
+
+	function updateStudentStatus($studentid, $status){
+    	$sql = "UPDATE student SET studying = '$status' WHERE studentid = '$studentid'";
+        $query = connect()->query($sql);
+        if($query){
+        	return '1';
+        }else{
+        	return '0';
+        }
+    }
 }
 ?>

@@ -43,6 +43,7 @@ switch($_POST['action']) {
 		$controllerUpdate->updateProvinceInfo($_POST['studentid'], $_POST['provinceid']);
 		$controllerUpdate->updateParentInfo($_POST['studentid'], $_POST['parentname'], $_POST['parentphone']);
 		$controllerUpdate->updateResidenceInfo($_POST['studentid'], $_POST['address']);
+		$controllerUpdate->updateStudentStatus($_POST['studentid'], $_POST['studying']);
 		break;
 	case 'insertData':
 		$controllerInsert->addStudent($_POST['studentid'], $_POST['firstname'], $_POST['lastname'], $_POST['birthday'], $_POST['gender'], $_POST['provinceid'], $_POST['email'], $_POST['phone'], $_POST['classid']);

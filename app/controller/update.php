@@ -26,5 +26,10 @@ class app_controller_update{
 		echo $updateResidence->updateResidenceInfo($studentid, $new_address);
 	}
 
+	function updateStudentStatus($studentid, $status_){
+		$status = new app_model_updateData();
+		$status->updateStudentStatus($studentid, $status_);
+	}
+
 }
 ?>
