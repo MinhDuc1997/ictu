@@ -98,6 +98,9 @@
             <select class="class_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect">
             </select>
           </div>
+          <div class="form mb-2 mr-sm-2 mb-sm-0 gr-1 study">
+        
+          </div>
         </div>
       </div>  
       <p class="noti"></p>

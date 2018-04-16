@@ -3,7 +3,7 @@ function menu(){
 	faculty();
 	facultyEvent();
 	majorsEvent();
-	courceEvent();
+	courseEvent();
 	classEvent();
 	student();
 	studentEvent();
@@ -11,7 +11,7 @@ function menu(){
 	majorsInUpdateEvent();
 	add();
 	facultyUpdateEvent();
-	courceInUpdateEvent();
+	courseInUpdateEvent();
 	updateStudent();
 	addStudent();
 	search();
@@ -83,7 +83,7 @@ function facultyUpdateEvent(){
 	      	$(".majors_").find("option").remove()
 	      	$(".course_").find("option").remove()
 	      	$(".class_").find("option").remove()
-	      	courceInUpdate()
+	      	courseInUpdate()
 	      	if(faculty_value != "Khoa ..."){
 	      		majorsInUpdate(faculty_id)
 	      	}
@@ -100,12 +100,12 @@ function facultyEvent(){
 	      	faculty_id += $(this).attr("data-value")
 	      	if(faculty_value !== "Khoa ..."){
 	      		$(".majors").remove()
-   				$(".cource").remove()
+   				$(".course").remove()
     			$(".class").remove()
 	      		majors(faculty_id)
 	      	}else{
 	      		$(".majors").remove()
-   				$(".cource").remove()
+   				$(".course").remove()
     			$(".class").remove()
 	      	}      	
 	    })
@@ -181,18 +181,18 @@ function majorsEvent(){
 	    	majors_value += $(this).text()
 	        majors_id += $(this).attr("data-value")
 	        if(majors_value !== "Ngành ..."){
-	        	$(".cource").remove()
+	        	$(".course").remove()
    				$(".class").remove()
-	      		cource()
+	      		course()
 	  		}else{
-	  			$(".cource").remove()
+	  			$(".course").remove()
    				$(".class").remove()
 	  		}
 	    })
 	}).change()
 }
 
-function cource(){
+function course(){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -202,16 +202,16 @@ function cource(){
 		  dataType: "json"
 		})
 		request.done(function(msg) {
-			$(".menu-form").append('<select class="custom-select cource" id="inlineFormCustomSelect"><option selected="">Khóa ...</option>')
+			$(".menu-form").append('<select class="custom-select course" id="inlineFormCustomSelect"><option selected="">Khóa ...</option>')
 			for(i = 0; i < msg.length; i++){
-				$(".cource").append("<option data-value='"+msg[i][0]+"''>"+msg[i][1]+"</option>")
+				$(".course").append("<option data-value='"+msg[i][0]+"''>"+msg[i][1]+"</option>")
 			}
 			$(".menu-form").append("</select>")
 		})
-   	//$(".menu-form").append('<select class="custom-select cource" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
+   	//$(".menu-form").append('<select class="custom-select course" id="inlineFormCustomSelect"><option selected="">Khóa ...</option><option>K13</option><option>K14</option>')
 }
 
-function courceInUpdate(){
+function courseInUpdate(){
 	request = $.ajax({
 		  url: "router/action.php",
 		  method: "POST",
@@ -228,29 +228,29 @@ function courceInUpdate(){
 		})
 }
 
-function courceInUpdateEvent(){
+function courseInUpdateEvent(){
 	$(document).on("change",".course_",function(){
-		cource_value = ""
-		cource_id = ""
+		course_value = ""
+		course_id = ""
 		$(".class_").find('option').remove()
 		$(".course_ option:selected").each(function() {
-			cource_value += $(this).text()
-	      	cource_id += $(this).attr("data-value")
-			if(cource_value !== "Khóa ..."){		
+			course_value += $(this).text()
+	      	course_id += $(this).attr("data-value")
+			if(course_value !== "Khóa ..."){		
 	      		class_InUpdate()
 	      	}
 		})
 	})
 }
 
-function courceEvent(){
-	$(document).on("change",".cource",function(){
-		cource_value = ""
-		cource_id = ""
-	    $(".cource option:selected").each(function() {
-	      cource_value += $(this).text()
-	      cource_id += $(this).attr("data-value")
-	      if(cource_value !== "Khóa ..."){
+function courseEvent(){
+	$(document).on("change",".course",function(){
+		course_value = ""
+		course_id = ""
+	    $(".course option:selected").each(function() {
+	      course_value += $(this).text()
+	      course_id += $(this).attr("data-value")
+	      if(course_value !== "Khóa ..."){
 	      	$(".class").remove()
 	      	class_();
 	      }else{
@@ -262,8 +262,8 @@ function courceEvent(){
 }
 
 function class_(){
-	$(".cource option:selected").each(function() {
-		cource_id = $(this).attr("data-value")
+	$(".course option:selected").each(function() {
+		course_id = $(this).attr("data-value")
 	})
 	$(".majors option:selected").each(function() {
 		majors_id = $(this).attr("data-value")
@@ -275,7 +275,7 @@ function class_(){
 		  data: {
 		  	action: "getClass",
 		  	majorsid: majors_id,
-		  	courseid: cource_id
+		  	courseid: course_id
 		  },
 		  dataType: "json"
 		})
@@ -292,11 +292,12 @@ function class_(){
 function class_InUpdate(){
 	course_id = ""
 	majors_id = ""
-	$(".cource_ option:selected").each(function() {
-		cource_id = $(this).attr("data-value")
+	$(".course_ option:selected").each(function() {
+		course_id += $(this).attr("data-value")
+		console.log(course_id)
 	})
 	$(".majors_ option:selected").each(function() {
-		majors_id = $(this).attr("data-value")
+		majors_id += $(this).attr("data-value")
 	})
 	
 	request = $.ajax({
@@ -305,7 +306,7 @@ function class_InUpdate(){
 		  data: {
 		  	action: "getClass",
 		  	majorsid: majors_id,
-		  	courseid: cource_id
+		  	courseid: course_id
 		  },
 		  dataType: "json"
 		})
@@ -416,7 +417,7 @@ function getAllInfoStudent(student_id){
 		$(".course_").append('<option data-value="'+msg.courseid+'"selected>'+msg.course+'</option>')
 		$(".class_").append('<option data-value="'+msg.classid+'" selected>'+msg.class+'</option>')
 		majorsInUpdate(msg.facultyid)
-		// /courceInUpdate()
+		// /courseInUpdate()
 		class_InUpdate()
 		province()
 	})
@@ -425,6 +426,7 @@ function getAllInfoStudent(student_id){
 function studentEvent(){
 	$(document).on("click","tr",function(){
 		status = 'update'
+		$(".study").append('<label class="mr-sm-2" for="inlineFormCustomSelect">Trạng thái</label><select class="study_ custom-select mb-2 mr-sm-2 mb-sm-0 sl" id="inlineFormCustomSelect"></select>')
 		$(".studentid").prop({
  			disabled: true
 		});
@@ -462,6 +464,8 @@ function closeDiv(){
 		$(".class_").find("option").remove()
 		$(".country").find("option").remove()
 		$(".noti").find("span").remove()
+		$(".study").find("label").remove()
+		$(".study").find("select").remove()
 	});
 }
 
@@ -479,6 +483,6 @@ function add(){
 		$(".title_").text("Thêm sinh viên")
 		$(".btn-update-student").text("Thêm")
 		facultyInUpdate()
-		courceInUpdate()
+		courseInUpdate()
 	})
 }

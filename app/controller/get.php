@@ -45,7 +45,7 @@ class app_controller_get{
 	}
 
 	function search($value){
-		$s = new app_model_getData();
+		$s = new app_model_search();
 		echo json_encode($s->search($value));
 	}
 }

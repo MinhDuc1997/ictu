@@ -37,8 +37,8 @@
         }
     }
 
-    $studentid = "DTC155D3201040008";
-    $status = "no";
+    $studentid = "DTC155D4802010103";
+    $status = "yes";
     echo '<pre>';
     print_r(updateStudentStatus($studentid, $status));
     echo '</pre>';
