@@ -361,7 +361,7 @@ function student(){
 						$('.row-student-'+i).append("<td>"+msg[i].birthday+"</td>")
 						$('.row-student-'+i).append("<td>"+msg[i].class+"</td>")
 						$('.row-student-'+i).append("<td>"+msg[i].address+"</td>")
-						$('.row-student-'+i).append("<td>"+msg[i].phone+"</td>")
+						$('.row-student-'+i).append("<td>0"+msg[i].phone+"</td>")
 						$("tbody").append('</tr>')
 					}else{
 						$("tbody").append('<tr data-value="'+msg[i].id+'" class="row-student-'+i+'">')
@@ -371,7 +371,7 @@ function student(){
 						$('.row-student-'+i).append("<td>"+msg[i].birthday+"</td>")
 						$('.row-student-'+i).append("<td>"+msg[i].class+"</td>")
 						$('.row-student-'+i).append("<td>"+msg[i].address+"</td>")
-						$('.row-student-'+i).append("<td>"+msg[i].phone+"</td>")
+						$('.row-student-'+i).append("<td>0"+msg[i].phone+"</td>")
 						$("tbody").append('</tr>')
 					}
 				}
