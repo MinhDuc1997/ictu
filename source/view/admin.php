@@ -10,6 +10,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="source/js/menu.js"></script>
+  <script src="source/js/updateStudent.js"></script>
+  <script src="source/js/addStudent.js"></script>
+  <script src="source/js/search.js"></script>
   <link rel="stylesheet" type="text/css" href="source/css/admin.css">
 
 </head>
@@ -97,7 +100,7 @@
           </div>
         </div>
       </div>  
-      
+      <p class="noti"></p>
       <button type="submit" name="btn-update-student" class="btn btn-primary btn-sm btn-update-student">Cập nhật</button>
     </form>
   </div>
@@ -115,9 +118,9 @@
         </form>
       </nav>
       <nav>
-        <form class="form" method="post">
-          <input type="text" name="search" class="form-control form-control-sm" placeholder="Tìm kiếm">
-          <button type="submit" name="btn-search" class="btn btn-sm" >Tìm</button>
+        <form class="form" method="post" onsubmit="return false">
+          <input type="text" name="search" class="ip-search form-control form-control-sm" placeholder="Tìm kiếm">
+          <button type="submit" name="btn-search" class="btn-search btn btn-sm" >Tìm</button>
         </form>
       </nav>
       <nav>

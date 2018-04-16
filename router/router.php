@@ -17,5 +17,6 @@ function connect(){
 }
 
 $controllerGet = new app_controller_get();
-
+$controllerUpdate = new app_controller_update();
+$controllerInsert = new app_controller_insert();
 ?> 

@@ -43,5 +43,10 @@ class app_controller_get{
 		$province = new app_model_getData();
 		echo json_encode($province->getProvince());
 	}
+
+	function search($value){
+		$s = new app_model_getData();
+		echo json_encode($s->search($value));
+	}
 }
 ?>

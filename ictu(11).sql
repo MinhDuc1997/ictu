@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2018 at 06:25 PM
+-- Generation Time: Apr 16, 2018 at 03:32 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -559,22 +559,32 @@ CREATE TABLE `parent` (
 --
 
 INSERT INTO `parent` (`studentid`, `parentname`, `parentphone`) VALUES
-('DTC155D4802010103', 'Phạm Thị Thanh Tân', 985290912),
-('DTC155D4802010204', 'Nguyễn Minh A', 984327542),
 ('DTC15HD4801030003', 'Nguyễn Thị A', 948374954),
 ('DTC15HD4802010021', 'Nguyễn Văn B', 984753421),
 ('DTC15HD4802010132', 'Nguyễn Văn C', 985748543),
 ('DTC15HD4802010286', 'Nguyễn Thị B', 948375843),
 ('DTC15HD4802010408', 'Nguyễn Thị C', 958493845),
-('DTC155D3201040008', 'Nguyễn Văn D', 987584753),
+('DTC155D3201040008', 'Tran van GG', 1987),
 ('DTC155D4802010001', 'Nguyễn Thị D', 984958495),
 ('DTC155D4802010002', 'Trần Văn A', 948473495),
 ('DTC155D4802010003', 'Trần Văn B', 984738453),
-('DTC155D4802010004', 'Trần Thị A', 958485945),
+('DTC155D4802010004', 'Hacker IS', 1987),
 ('DTC155D4802010055', 'Nguyễn Văn C', 984737432),
 ('DTC155D4802010056', 'Trần Thị C', 948374854),
 ('DTC155D4802010077', 'Nguyễn Văn E', 948384934),
-('DTC155D4802010575', 'Phạm Văn A', 94873948);
+('DTC155D4802010575', 'Phạm Văn A', 94873948),
+('DTC145D4802010037', 'Đỗ Đăng Hải', 985382914),
+('DTC155D4802010022', 'Nguyễn Văn FF', 1212122),
+('DTC145D4802010038', 'Đỗ Đăng Hải', 985382914),
+('DTC155D4802010020', 'Nguyễn Văn Minh', 1632121212),
+('DTC155D4802010021', 'Nguyễn Minh A', 141151530),
+('DTC155D4802010103', 'Phạm Thị Thanh Tân', 13545615),
+('DTC155D4802015555', 'Nguyễn Thị A', 1645155626),
+('DTC155D3201040044', 'Nguyễn Văn V', 168165151),
+('DTC155D4802010498', 'Nguyễn Văn Cảnh', 1674544444),
+('DTC155D4802063584', 'Nguyễn Minh D', 1632121128),
+('DTC155D4802020125', 'Nguyễn Minh E', 163211444),
+('DTC155D4802010412', 'Nguyễn Minh A', 1676464125);
 
 -- --------------------------------------------------------
 
@@ -673,22 +683,32 @@ CREATE TABLE `residence` (
 --
 
 INSERT INTO `residence` (`studentid`, `provinceid`, `address`) VALUES
-('DTC155D4802010204', 50, 'Xóm trọ cô Tân'),
-('DTC155D4802010103', 50, 'Tổ 13, phường Tân Thịnh, TPTN'),
 ('DTC15HD4801030003', 50, 'KTX A10 P10'),
 ('DTC15HD4802010021', 50, 'Tổ 13, Xã Quyết Thắng, TPTN'),
 ('DTC15HD4802010132', 50, 'KTX A1 P1'),
 ('DTC15HD4802010286', 50, 'KTX A1 P1'),
 ('DTC15HD4802010408', 50, 'KTX A1 P2'),
-('DTC155D3201040008', 50, 'Tổ 12 Xã Quyết Thắng TPTN'),
+('DTC155D3201040008', 59, 'Quất lâm Hà Nội'),
 ('DTC155D4802010001', 50, 'KTX A1 P2'),
 ('DTC155D4802010002', 50, 'Tổ 13 Xã Quyết Thắng TPTN'),
 ('DTC155D4802010003', 50, 'KTX A1 P3'),
-('DTC155D4802010004', 50, 'KTX A1 P3'),
+('DTC155D4802010004', 59, 'Quất lâm Hà Nội'),
 ('DTC155D4802010055', 50, 'KTX A1 P3'),
 ('DTC155D4802010056', 50, 'Tổ 12 Xã Quyết Thắng TPTN'),
 ('DTC155D4802010077', 50, 'KTX A2 P1'),
-('DTC155D4802010575', 50, 'KTX A2 P2');
+('DTC155D4802010575', 50, 'KTX A2 P2'),
+('DTC145D4802010037', 50, 'Xóm trọ Thanh Phượng'),
+('DTC155D4802010022', 1, 'KTX A9 P202'),
+('DTC145D4802010038', 50, 'Xóm trọ Thanh Phượng'),
+('DTC155D4802010020', 58, 'Xóm trọ cô Tân'),
+('DTC155D4802010021', 34, 'Xóm trọ anh Hoàng'),
+('DTC155D4802010103', 50, 'Tổ 13, phường Tân Thịnh, TPTN'),
+('DTC155D4802015555', 21, 'KTX A7 P201'),
+('DTC155D3201040044', 1, 'KTX A7 P201'),
+('DTC155D4802010498', 34, 'KTX A9 P202'),
+('DTC155D4802063584', 4, 'Xóm trọ Thanh Phượng'),
+('DTC155D4802020125', 40, 'Xóm trọ Thanh Phượng'),
+('DTC155D4802010412', 4, 'Xóm trọ anh Hoàng');
 
 -- --------------------------------------------------------
 
@@ -714,17 +734,27 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`studentid`, `firstname`, `lastname`, `birthday`, `gender`, `provinceid`, `email`, `phone`, `classid`, `studying`) VALUES
-('DTC155D3201040008', 'Hà Quang', 'Huy', '1997-06-15', 'Nam', 23, 'DTC155D3201040008@ictu.edu.vn', 948345435, 4, 'yes'),
-('DTC155D4802010001', 'Nguyễn Ngọc ', 'Ánh', '1997-05-06', 'Nữ', 22, 'DTC155D4802010001@ictu.edu.vn', 912353845, 1, 'yes'),
+('DTC145D4802010037', 'Đỗ Đăng', 'Thảo', '1996-04-28', 'Nữ', 50, 'DTC145D4802010037@ictu.edu.vn', 985948347, 42, 'yes'),
+('DTC145D4802010038', 'Đỗ Đăng', 'Mai', '1996-05-26', 'Nữ', 50, 'DTC145D4802010038@ictu.edu.vn', 985948347, 42, 'yes'),
+('DTC155D3201040008', 'Huy', 'Hà Quang', '1998-02-15', 'Nam', 59, 'huy@gmail.com', 1133, 1, 'yes'),
+('DTC155D3201040044', 'Nguyễn Minh', 'Hằng', '1997-07-24', 'Nữ', 1, 'DTC155D3201040044', 1674542600, 45, 'yes'),
+('DTC155D4802010001', 'Nguyễn Ngọc', 'Ánh', '1997-05-06', 'Nữ', 22, 'DTC155D4802010001@ictu.edu.vn', 912353845, 1, 'yes'),
 ('DTC155D4802010002', 'Nguyễn Văn ', 'Trung', '1997-03-24', 'Nam', 40, 'DTC155D4802010002@ictu.edu.vn', 912358345, 1, 'yes'),
 ('DTC155D4802010003', 'Đặng Việt ', 'Anh', '1997-03-12', 'Nam', 4, 'DTC155D4802010003@ictu.edu.vn', 987439423, 1, 'yes'),
-('DTC155D4802010004', 'Nguyễn Tuấn ', 'Anh', '1997-07-29', 'Nam', 62, 'DTC155D4802010004@ictu.edu.vn', 1684357403, 2, 'no'),
+('DTC155D4802010004', 'Huyy', 'Hà Quang', '1998-02-13', 'Nam', 59, 'huy@gmail.com', 113, 1, 'yes'),
+('DTC155D4802010020', 'Nguyễn Minh', 'Đức', '1997-02-25', 'Nam', 58, 'DTC155D4802010020@gmail.com', 1676460699, 45, 'yes'),
+('DTC155D4802010021', 'Nguyễn Đăng', 'Hải', '1997-03-05', 'Nữ', 34, 'DTC155D4802010021@gmail.com', 1625645455, 45, 'yes'),
+('DTC155D4802010022', 'Nguyễn Thị', 'Quỳnh', '1997-02-16', 'Nữ', 1, 'DTC155D4802010022@gmail.com', 1674542633, 45, 'yes'),
 ('DTC155D4802010055', 'Phạm Thị', 'Loan', '1997-05-19', 'Nữ', 28, 'DTC155D4802010055@ictu.edu.vn', 984759483, 2, 'yes'),
 ('DTC155D4802010056', 'Vũ Thị Như ', 'Loan', '1997-02-14', 'Nữ', 53, 'DTC155D4802010056@ictu.edu.vn', 948384954, 5, 'yes'),
 ('DTC155D4802010077', 'Đồng Minh', 'Tâm', '1997-05-17', 'Nam', 60, 'DTC155D4802010077@ictu.edu.vn', 985483432, 1, 'yes'),
-('DTC155D4802010103', 'Trần Công ', 'Tùng', '1997-02-12', 'Nam', 50, 'tungtran130@gmail.com', 1684386405, 1, 'yes'),
-('DTC155D4802010204', 'Nguyễn Minh', 'Đức', '1997-02-25', 'Nam', 58, 'duc2521997@gmail.com', 1676460699, 4, 'yes'),
+('DTC155D4802010103', 'Trần Công', 'Tùng', '1997-02-12', 'Nam', 50, 'tungtran130@gmail.com', 1684386405, 45, 'yes'),
+('DTC155D4802010412', 'Trần Lê', 'Huy', '1996-04-21', 'Nam', 4, 'DTC155D4802010412', 1651652455, 45, 'yes'),
+('DTC155D4802010498', 'Nguyễn Minh', 'Hiếu', '1995-08-05', 'Nam', 34, 'DTC155D4802010498', 1674542402, 45, 'yes'),
 ('DTC155D4802010575', 'Lê Thị ', 'Loan', '1997-03-11', 'Nữ', 20, 'DTC155D4802010575@ictu.edu.vn', 985738531, 4, 'yes'),
+('DTC155D4802015555', 'Nguyễn Ngọc ', 'Huệ', '1997-07-16', 'Nữ', 21, 'DTC155D4802015555@gmail.com', 1685452111, 45, 'yes'),
+('DTC155D4802020125', 'Nguyễn Thị Thu', 'Thảo', '1997-01-25', 'Nữ', 40, 'DTC155D4802020125', 1625640412, 45, 'yes'),
+('DTC155D4802063584', 'Nguyễn Thị', 'Thảo', '1997-08-25', 'Nữ', 4, 'DTC155D4802063584', 1625640123, 45, 'yes'),
 ('DTC15HD4801030003', 'Hoàng Tuấn', 'Anh', '1997-03-03', 'Nam', 6, 'DTC15HD4801030003@ictu.edu.vn', 978463243, 4, 'yes'),
 ('DTC15HD4802010021', 'Đinh Quốc ', 'Chiến', '1997-02-14', 'Nam', 23, 'DTC15HD4802010021@ictu.edu.vn', 978345243, 2, 'yes'),
 ('DTC15HD4802010132', 'Dương Hữu', 'Long', '1995-08-07', 'Nam', 59, 'DTC15HD4802010132@ictu.edu.vn', 985459653, 4, 'no'),

@@ -1,4 +1,4 @@
-
+status = ""
 function menu(){
 	faculty();
 	facultyEvent();
@@ -12,6 +12,9 @@ function menu(){
 	add();
 	facultyUpdateEvent();
 	courceInUpdateEvent();
+	updateStudent();
+	addStudent();
+	search();
 }
 
 function province(){
@@ -422,6 +425,9 @@ function getAllInfoStudent(student_id){
 function studentEvent(){
 	$(document).on("click","tr",function(){
 		status = 'update'
+		$(".studentid").prop({
+ 			disabled: true
+		});
 		msv = $(this).find(".student-id").text()
 		if(msv != ''){
 			getAllInfoStudent(msv)
@@ -455,11 +461,16 @@ function closeDiv(){
 		$(".course_").find("option").remove()
 		$(".class_").find("option").remove()
 		$(".country").find("option").remove()
+		$(".noti").find("span").remove()
 	});
 }
 
 function add(){
 	$(".add").click(function(){
+		status = "add"
+		$(".studentid").prop({
+ 			disabled: false
+		});
 		province()
 		$(".gender").append("<option>Nam</option>")
 		$(".gender").append("<option>Nữ</option>")
