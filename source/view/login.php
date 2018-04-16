@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  
+  <link rel="icon" href="source/ico/icons8-login-filled-50.png">
   <link rel="stylesheet" href="source/css/login.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="source/js/checkLogin.js"></script>

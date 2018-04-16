@@ -1,23 +1,23 @@
+<?php if(!isset($_COOKIE['username'])) header('location: login')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Administrator</title>
+  <title><?php echo $_COOKIE['username'] ?> - manager</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="source/ico/administrator.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="source/js/menu.js"></script>
+  <script src="source/js/main.js"></script>
   <script src="source/js/updateStudent.js"></script>
   <script src="source/js/addStudent.js"></script>
   <script src="source/js/search.js"></script>
   <link rel="stylesheet" type="text/css" href="source/css/admin.css">
 
 </head>
-
-<?php if(!isset($_COOKIE['username'])) header('location: login')?>
 
 <body onload="menu()">
 <div class="button-add">

@@ -59,7 +59,8 @@ function addStudent(){
 		    })
 
 			if(firstname != "" && lastname != "" && studentid != "" && gender != "" && birthday != "" && phone != "" && email
-			 != "" && provinceid != "" && parentname != "" && parentphone != "" && residence != "" && classid != ""){
+			 != "" && provinceid != "" && parentname != "" && parentphone != "" && residence != "" && classid != "" 
+			 && facultyid != "" && majorsid != "" && courseid != "" && classid != ""){
 				request = $.ajax({
 				  url: "router/action.php",
 				  method: "POST",
